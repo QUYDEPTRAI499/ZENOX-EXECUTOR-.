@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FUTURE EXECUTOR</title>
+  <style>
+    body {
+      margin: 0;
+      background: #2f2f2f;
+      color: #fff;
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      overflow: hidden;
+      animation: fadeIn 2s ease-in;
+    }
+
+    h1 {
+      color: #fff;
+      font-size: 3em;
+      margin-bottom: 20px;
+      animation: pulse 2s infinite;
+      background: none;
+      text-shadow: 0 0 15px #fff;
+    }
+
+    .executor-card {
+      background: #2f2f2f;
+      padding: 30px 40px;
+      border-radius: 16px;
+      box-shadow: 0 0 20px #ffffffaa;
+      text-align: center;
+      width: 320px;
+      animation: slideIn 1s ease forwards;
+      backdrop-filter: blur(8px);
+    }
+
+    .executor-card select {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 10px;
+      background: #444;
+      color: #fff;
+      border: 1px solid #666;
+      border-radius: 8px;
+      font-size: 1em;
+      transition: background 0.3s;
+      box-shadow: 0 0 8px #ffffff66;
+    }
+
+    .executor-card select:hover {
+      background: #555;
+    }
+
+    .executor-card a.button {
+      display: inline-block;
+      padding: 12px 24px;
+      background: #fff;
+      color: #000;
+      text-decoration: none;
+      border-radius: 10px;
+      font-weight: bold;
+      font-size: 1.1em;
+      transition: transform 0.3s, background 0.3s;
+      box-shadow: 0 0 10px #ffffffaa;
+    }
+
+    .executor-card a.button:hover {
+      background: #e6e6e6;
+      transform: scale(1.05);
+    }
+
+    .executor-card .info-text {
+      color: #fff;
+      font-size: 0.9em;
+      text-align: center;
+      margin-top: 5px;
+      margin-bottom: 20px;
+      font-weight: 500;
+      text-shadow: 0 0 5px #ffffffaa;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes slideIn {
+      from { transform: translateY(50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    @keyframes pulse {
+      0% { text-shadow: 0 0 10px #fff; }
+      50% { text-shadow: 0 0 20px #fff; }
+      100% { text-shadow: 0 0 10px #fff; }
+    }
+  </style>
+</head>
+<body>
+  <h1>FUTURE EXECUTOR</h1>
+  <div class="executor-card">
+    <select id="executor-select">
+      <option value="">-- Chọn Executor --</option>
+      <option value="fluxus">Fluxus</option>
+      <option value="arceusx">ArceusX</option>
+      <option value="delta">Delta</option>
+      <option value="codex">CodeX</option>
+    </select>
+    <p class="info-text">Chọn phiên bản executor phù hợp để tải xuống.  Bản quyền chỉnh thức thuộc về FUTURE COMMUNITY : https://discord.gg/CDaV2wDB4A</p>
+    <div id="download-link"></div>
+  </div>
+
+  <script>
+    const links = {
+      fluxus: 'https://www.mediafire.com/file/u0drn1j8afxr9d1/Fluxus.apk/file',
+      arceusx: 'https://www.mediafire.com/file/hsgtktze59jdkah/ArceusX.apk/file',
+      delta: 'https://www.mediafire.com/file/43azjtujx7zt9hf/Delta.apk/file',
+      codex: 'https://www.mediafire.com/file/edbgsc4kh6qvppl/Codex.apk/file'
+    };
+
+    const select = document.getElementById('executor-select');
+    const downloadDiv = document.getElementById('download-link');
+
+    select.addEventListener('change', () => {
+      const val = select.value;
+      if (links[val]) {
+        downloadDiv.innerHTML = `<a class="button" href="${links[val]}" target="_blank">Tải về ${val}</a>`;
+      } else {
+        downloadDiv.innerHTML = '';
+      }
+    });
+  </script>
+</body>
+</html>
