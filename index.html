@@ -14,19 +14,34 @@
       flex-direction: column;
       align-items: center;
       justify-content: flex-start;
-      height: 100vh;
-      overflow-y: auto;
-      animation: fadeIn 2s ease-in;
+      min-height: 100vh;
       padding: 40px 0;
     }
 
     h1 {
       color: #fff;
       font-size: 3em;
-      margin-bottom: 30px;
+      margin-bottom: 20px;
       animation: pulse 2s infinite;
-      background: none;
       text-shadow: 0 0 15px #fff;
+    }
+
+    .section {
+      width: 90%;
+      max-width: 1200px;
+      background: #444;
+      border-radius: 20px;
+      padding: 30px;
+      margin: 20px 0;
+      box-shadow: 0 0 20px #00000088;
+    }
+
+    .section-title {
+      font-size: 2.5em;
+      margin-bottom: 20px;
+      font-weight: bold;
+      text-shadow: 0 0 8px #ffffff;
+      /* Removed icon and gap */
     }
 
     .card-container {
@@ -34,6 +49,292 @@
       flex-wrap: wrap;
       justify-content: center;
       gap: 30px;
+    }
+
+    .executor-card {
+      background: #3a3a3a;
+      padding: 20px;
+      border-radius: 16px;
+      box-shadow: 0 0 20px #ffffff55;
+      text-align: center;
+      width: 280px;
+      position: relative;
+    }
+
+    .executor-card .status-label {
+      position: absolute;
+      top: 8px;
+      left: 8px;
+      background: #00ffcccc;
+      color: #000;
+      font-weight: 700;
+      font-size: 0.9em;
+      padding: 3px 8px;
+      border-radius: 10px;
+      text-transform: uppercase;
+      user-select: none;
+      box-shadow: 0 0 8px #00ffccaa;
+    }
+
+    .executor-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin-bottom: 15px;
+    }
+
+    .executor-card a.button {
+      display: inline-block;
+      padding: 10px 20px;
+      background: #00ffcc;
+      color: #000;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      font-size: 1em;
+      box-shadow: 0 0 10px #00ffccaa;
+      transition: transform 0.3s;
+    }
+
+    .executor-card a.button:hover {
+      transform: scale(1.05);
+    }
+
+    .info-text {
+      font-size: 1.2em;
+      margin: 10px 0 20px;
+      font-weight: 700;
+      text-shadow: 0 0 5px #fff;
+    }
+
+    .footer-text {
+      margin-top: 40px;
+      font-size: 1.2em;
+      color: #ffffff;
+      text-shadow: 0 0 10px #ffffff55;
+      text-align: center;
+    }
+
+    @keyframes pulse {
+      0%, 100% { text-shadow: 0 0 10px #fff; }
+      50% { text-shadow: 0 0 20px #fff; }
+    }
+
+    /* Popup giới thiệu */
+    #intro-popup {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: #222;
+      border-radius: 15px;
+      box-shadow: 0 0 25px #00ffccbb;
+      padding: 30px 40px;
+      max-width: 400px;
+      width: 90%;
+      z-index: 9999;
+      color: white;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      animation: popupFadeIn 0.5s ease forwards;
+    }
+    #intro-popup img {
+      width: 180px;
+      height: auto;
+      margin-bottom: 20px;
+      border-radius: 0;
+      object-fit: contain;
+      box-shadow: none;
+      background: transparent;
+    }
+    #intro-popup button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      background: #00ffcc;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      color: #000;
+      box-shadow: 0 0 10px #00ffccaa;
+      transition: background 0.3s;
+    }
+    #intro-popup button:hover {
+      background: #00d1aa;
+    }
+
+    @keyframes popupFadeIn {
+      from { opacity: 0; transform: translate(-50%, -60%); }
+      to { opacity: 1; transform: translate(-50%, -50%); }
+    }
+
+  </style>
+</head>
+<body>
+  <h1>FUTURE EXECUTOR</h1>
+
+  <!-- Popup giới thiệu -->
+  <div id="intro-popup" style="display:none;">
+    <img src="https://cdn.discordapp.com/attachments/1320975940976902144/1376201597780099273/logo-chu-f-crown-logo-vuong-mien-tren-mau-vector-chu-f-cho-ve-ep-thoi-trang-ngoi-sao-thanh.jpg?ex=6836715d&is=68351fdd&hm=9b784378ba128ebdb02b13c6ae3267e4b26119c16fbe79320c256923dc008b76&" alt="Giới thiệu"/>
+    <p>Chào mừng bạn đến với FUTURE EXECUTOR! Đây là trang tải xuống các executor tốt nhất cho nhiều nền tảng.</p>
+    <button id="close-popup-btn">Đóng</button>
+  </div>
+
+  <!-- EXECUTOR ANDROID VNG -->
+  <div class="section">
+    <div class="section-title">
+      EXECUTOR ANDROID VNG
+      </div>
+      <div class="executor-card">
+        <div class="status-label">Hoạt động</div>
+        <img src="https://executors-lion-hub.netlify.app/codex.png " alt="Executor 2"/>
+        <p class="info-text">CODEX</p>
+        <a class="button" href="https://codex.lol/" target="_blank">Tải về</a>
+      </div>
+      <div class="executor-card">
+        <div class="status-label">Hoạt động</div>
+        <img src="https://executors-lion-hub.netlify.app/arcx.png " alt="Executor 3"/>
+        <p class="info-text">ARCEUS-X-NEO</p>
+        <a class="button" href="https://spdmteam.com/index?os=android" target="_blank">Tải về</a>
+      </div>
+      <div class="executor-card">
+        <div class="status-label">Hoạt động</div>
+        <img src="https://executors-lion-hub.netlify.app/K.svg" alt="Executor 4"/>
+        <p class="info-text">KRNL</p>
+        <a class="button" href="https://krnl.cat/" target="_blank">Tải về</a>
+      </div>
+      <div class="executor-card">
+        <div class="status-label">Hoạt động</div>
+        <img src="https://executors-lion-hub.netlify.app/cry.webp" alt="Executor 4"/>
+        <p class="info-text">CRYPTIC</p>
+        <a class="button" href="https://getcryptic.net/" target="_blank">Tải về</a>
+        </div>
+    </div>
+  </div>
+
+  <!-- EXECUTOR ANDROID QT -->
+  <div class="section">
+    <div class="section-title">
+      EXECUTOR ANDROID QT
+    </div>
+    <div class="card-container">
+      <div class="executor-card">
+        <div class="status-label">Hoạt động</div>
+        <img src="https://executors-lion-hub.netlify.app/deltax.png" alt="Executor 1"/>
+        <p class="info-text">DELTA-X</p>
+        <a class="button" href="https://www.mediafire.com/file_premium/x8kaova1oq5eo2q/Delta-2.673.713.apk/file  " target="_blank">Tải về</a>
+      </div>
+      <div class="executor-card">
+        <div class="status-label">Hoạt động</div>
+        <img src="https://executors-lion-hub.netlify.app/codex.png " alt="Executor 2"/>
+        <p class="info-text">CODEX</p>
+        <a class="button" href="https://codex.lol/" target="_blank">Tải về</a>
+      </div>
+      <div class="executor-card">
+        <div class="status-label">Hoạt động</div>
+        <img src="https://executors-lion-hub.netlify.app/arcx.png" alt="Executor 3"/>
+        <p class="info-text">ARCEUS-X-NEO</p>
+        <a class="button" href="https://spdmteam.com/index?os=android" target="_blank">Tải về</a>
+     </div>
+      <div class="executor-card">
+        <div class="status-label">Hoạt động</div>
+        <img src="https://executors-lion-hub.netlify.app/tri.png" alt="Executor 4"/>
+        <p class="info-text">TRIGON</p>
+        <a class="button" href="https://trigonevo.com/android/ " target="_blank">Tải về</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- EXECUTOR IOS -->
+  <div class="section">
+    <div class="section-title">EXECUTOR IOS</div>
+    <div class="card-container">
+      <div class="executor-card">
+        <div class="status-label">Hoạt động</div>
+        <img src="https://executors-lion-hub.netlify.app/deltax.png" alt="Executor IOS 1"/>
+        <p class="info-text">DELTA-X</p>
+        <a class="button" href="https://deltaexploits.gg/delta-executor-ios" target="_blank">Tải về</a>
+      </div>
+      <div class="executor-card">
+        <div class="status-label">Hoạt động</div>
+        <img src="https://executors-lion-hub.netlify.app/arcx.png" alt="Executor IOS 2"/>
+        <p class="info-text">ARCUES-X-NEO</p>
+        <a class="button" href="https://spdmteam.com/index?os=android" target="_blank">Tải về</a>
+      </div>
+      <div class="executor-card">
+        <div class="status-label">Hoạt động</div>
+        <img src="https://executors-lion-hub.netlify.app/codex.png" alt="Executor IOS 3"/>
+        <p class="info-text">CODEX</p>
+        <a class="button" href="https://codex.lol/" target="_blank">Tải về</a>
+      </div>
+      <div class="executor-card">
+        <div class="status-label">Hoạt động</div>
+        <img src="https://executors-lion-hub.netlify.app/K.svg" alt="Executor IOS 4"/>
+        <p class="info-text">KRNL</p>
+        <a class="button" href="https://krnl.cat/" target="_blank">Tải về</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- EXECUTOR PC -->
+  <div class="section">
+    <div class="section-title">EXECUTOR PC</div>
+    <div class="card-container">
+      <div class="executor-card">
+        <div class="status-label">Hoạt động</div>
+        <img src="https://executors-lion-hub.netlify.app/codex.png" alt="Executor PC 1"/>
+        <p class="info-text">CODEX</p>
+        <a class="button" href="https://codex.lol/" target="_blank">Tải về</a>
+      </div>
+      <div class="executor-card">
+        <div class="status-label">Hoạt động</div>
+        <img src="https://executors-lion-hub.netlify.app/Sw.webp" alt="Executor PC 2"/>
+        <p class="info-text">TAYLOR-SWIFT</p>
+        <a class="button" href="https://getswift.gg/" target="_blank">Tải về</a>
+      </div>
+      <div class="executor-card">
+        <div class="status-label">Hoạt động</div>
+        <img src="https://images.crunchbase.com/image/upload/c_pad,f_auto,q_auto:eco,dpr_1/ad789f5f19f8483da06d1f6a0a8ab9bc" alt="Executor PC 3"/>
+        <p class="info-text">XENO</p>
+        <a class="button" href="https://www.xeno.onl/download" target="_blank">Tải về</a>
+      </div>
+      <div class="executor-card">
+        <div class="status-label">Hoạt động</div>
+        <img src="https://executors-lion-hub.netlify.app/arcx.png" alt="Executor PC 4"/>
+        <p class="info-text">ARCEUS-X-NEO</p>
+        <a class="button" href="https://spdmteam.com/index?os=android" target="_blank">Tải về</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-text">© 2025 FUTURE EXECUTOR : https://discord.gg/DdGAmF28h2</div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const popup = document.getElementById('intro-popup');
+      const closeBtn = document.getElementById('close-popup-btn');
+
+      function setPopupClosed() {
+        popup.style.display = 'none';
+        const expireTime = Date.now() + 60 * 60 * 1000; // 1 hour
+        localStorage.setItem('introPopupClosedUntil', expireTime.toString());
+      }
+
+      closeBtn.addEventListener('click', () => {
+        setPopupClosed();
+      });
+
+      const closedUntil = localStorage.getItem('introPopupClosedUntil');
+      if (!closedUntil || Date.now() > closedUntil) {
+        popup.style.display = 'flex';
+      }
+    });
+  </script>
+</body>
+</html>
     }
 
     .executor-card {
