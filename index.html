@@ -45,10 +45,9 @@
     }
 
     .card-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 30px;
+    display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 30px;
     }
 
     .executor-card {
@@ -142,7 +141,7 @@
       animation: popupFadeIn 0.5s ease forwards;
     }
     #intro-popup img {
-      width: 180px;
+      width: 300px;
       height: auto;
       margin-bottom: 20px;
       border-radius: 0;
@@ -178,7 +177,7 @@
 
   <!-- Popup giới thiệu -->
   <div id="intro-popup" style="display:none;">
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQd8tf-vHMTuqrwOpYryd98EIyMgxXUxQdi-g&s " alt="Giới thiệu"/>
+    <img src="https://cdn.discordapp.com/attachments/1329426349034836031/1380384809406300201/standard_2.gif?ex=6843af08&is=68425d88&hm=b8a2f06206bb48438e47290f2bcc399e1e85804fd47d0f0a526d81b5e69ecdc8&" alt="Giới thiệu"/>
     <p>Chào mừng bạn đến với FUTURE EXECUTOR! Đây là trang tải xuống các executor tốt nhất cho nhiều nền tảng.</p>
     <button id="close-popup-btn">Đóng</button>
   </div>
@@ -310,6 +309,51 @@
       </div>
     </div>
   </div>
+<!-- Thêm phần Script Executor -->
+<div class="section">
+  <div class="section-title">SCRIPT EXECUTOR</div>
+  <div class="card-container">
+    <!-- 1 ô script nhỏ -->
+    <div class="executor-card">
+      <p class="info-text">Script Vexeze hub</p>
+      <textarea readonly style="width:100%; height:100px; border-radius: 8px; padding: 10px; resize:none; background:#222; color:#0f0; font-family: monospace;">
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Dex-Bear/Vxezehub/refs/heads/main/VxezeHubMain"))()
+      </textarea>
+      <a class="button copy-btn" href="javascript:void(0)">Copy Script</a>
+    </div>
+
+    <!-- 1 ô script nhỏ khác -->
+    <div class="executor-card">
+      <p class="info-text">Script Lion Hub</p>
+      <textarea readonly style="width:100%; height:100px; border-radius: 8px; padding: 10px; resize:none; background:#222; color:#0f0; font-family: monospace;">
+repeat wait() until game:IsLoaded() and game.Players.LocalPlayer
+getgenv().Team = "Pirates" -- Marines
+loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/bf92d246f65d7d0e0d684a81d4e59fa3.lua"))()
+      </textarea>
+      <a class="button copy-btn" href="javascript:void(0)">Copy Script</a>
+    </div>
+
+    <!-- Thêm các ô script nhỏ tùy ý -->
+  </div>
+</div>
+
+<script>
+  // Script copy
+  document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const textarea = btn.previousElementSibling;
+      textarea.select();
+      textarea.setSelectionRange(0, 99999); // Mobile support
+      navigator.clipboard.writeText(textarea.value).then(() => {
+        const originalText = btn.textContent;
+        btn.textContent = 'Copied!';
+        setTimeout(() => btn.textContent = originalText, 1500);
+      }).catch(() => {
+        alert('Copy thất bại! Vui lòng copy thủ công.');
+      });
+    });
+  });
+</script>
 
   <div class="footer-text">© 2025 FUTURE EXECUTOR : https://discord.gg/DdGAmF28h2</div>
 
