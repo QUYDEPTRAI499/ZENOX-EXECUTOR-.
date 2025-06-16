@@ -310,74 +310,115 @@
       </div>
     </div>
   </div>
-<!-- Thêm phần Script Executor -->
+ 
 <div class="section">
-  <div class="section-title">SCRIPT EXECUTOR</div>
-  <div class="card-container">
-    <!-- 1 ô script nhỏ -->
-    <div class="executor-card">
-      <p class="info-text">Script Vexeze hub</p>
-      <textarea readonly style="width:100%; height:100px; border-radius: 8px; padding: 10px; resize:none; background:#222; color:#0f0; font-family: monospace;">
-loadstring(game:HttpGet("https://raw.githubusercontent.com/Dex-Bear/Vxezehub/refs/heads/main/VxezeHubMain"))()
-      </textarea>
-      <a class="button copy-btn" href="javascript:void(0)">Copy Script</a>
-    </div>
-
-    <!-- 1 ô script nhỏ khác -->
-    <div class="executor-card">
-      <p class="info-text">Script Lion Hub</p>
-      <textarea readonly style="width:100%; height:100px; border-radius: 8px; padding: 10px; resize:none; background:#222; color:#0f0; font-family: monospace;">
+    <div class="section-title">SCRIPT EXCUTOR </div>
+    <div class="card-container">
+      <!-- Script 3: Shinichi Hub -->
+      <div class="executor-card">
+        <p class="info-text">Script Shinichi Hub</p>
+        <div class="script-toggle">
+          <div class="script-cover">
+            <img src=" https://scriptdee.com/wp-content/uploads/2025/06/Shinichi-Hub-BF.png" alt="Click để hiện script" style="width: 100%; height: 180px; border-radius: 12px; object-fit: cover; cursor: pointer; box-shadow: 0 0 15px #00ffcc;">
+            <p style="margin-top: 10px; color: #fff; font-weight: 700; text-shadow: 0 0 5px #fff;">Click để hiển thị script</p>
+          </div>
+          <div class="script-content" style="display: none;">
+            <textarea readonly style="width:100%; height:100px; border-radius: 8px; padding: 10px; resize:none; background:#222; color:#0f0; font-family: monospace;">
+repeat wait() until game:IsLoaded()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/shinichi-dz/phucshinsayhi/refs/heads/main/ShinichiHub.lua"))()
+            </textarea>
+            <a class="button copy-btn" href="javascript:void(0)">Copy Script</a>
+            <a class="button" href="javascript:void(0)" onclick="toggleScript(this)">Ẩn lại</a>
+          </div>
+        </div>
+      </div>
+      <!-- Script 2: Che bằng ảnh và hiện lại -->
+      <div class="executor-card">
+        <p class="info-text">Script Lion Hub</p>
+        <div class="script-toggle">
+          <div class="script-cover">
+            <img src=" https://i.ytimg.com/vi/Sn18X_vf1UY/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLDZlDATTwiMepyoLyrtyFwV-cnYdA" alt="Click để hiện script" style="width: 100%; height: 180px; border-radius: 12px; object-fit: cover; cursor: pointer; box-shadow: 0 0 15px #00ffcc;">
+            <p style="margin-top: 10px; color: #fff; font-weight: 700; text-shadow: 0 0 5px #fff;">Click để hiển thị script</p>
+          </div>
+          <div class="script-content" style="display: none;">
+            <textarea readonly style="width:100%; height:100px; border-radius: 8px; padding: 10px; resize:none; background:#222; color:#0f0; font-family: monospace;">
 repeat wait() until game:IsLoaded() and game.Players.LocalPlayer
 getgenv().Team = "Pirates" -- Marines
 loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/bf92d246f65d7d0e0d684a81d4e59fa3.lua"))()
-      </textarea>
-      <a class="button copy-btn" href="javascript:void(0)">Copy Script</a>
-    </div>
-
-    <!-- Thêm các ô script nhỏ tùy ý -->
-  </div>
-</div>
-
-<script>
-  // Script copy
-  document.querySelectorAll('.copy-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const textarea = btn.previousElementSibling;
-      textarea.select();
-      textarea.setSelectionRange(0, 99999); // Mobile support
-      navigator.clipboard.writeText(textarea.value).then(() => {
-        const originalText = btn.textContent;
-        btn.textContent = 'Copied!';
-        setTimeout(() => btn.textContent = originalText, 1500);
-      }).catch(() => {
-        alert('Copy thất bại! Vui lòng copy thủ công.');
-      });
-    });
-  });
-</script>
-
+            </textarea>
+            <a class="button copy-btn" href="javascript:void(0)">Copy Script</a>
+            <a class="button" href="javascript:void(0)" onclick="toggleScript(this)">Ẩn lại</a>
+          </div>
+        </div>
+      </div>
+      <div class="executor-card">
+        <p class="info-text">Script W-azure</p>
+        <div class="script-toggle">
+          <div class="script-cover">
+            <img src=" https://i.ytimg.com/vi/z85RWfnLr-U/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLCLrjCMhYPZ9FeodhBI8Nu5Rg32oA" alt="Click để hiện script" style="width: 100%; height: 180px; border-radius: 12px; object-fit: cover; cursor: pointer; box-shadow: 0 0 15px #00ffcc;">
+            <p style="margin-top: 10px; color: #fff; font-weight: 700; text-shadow: 0 0 5px #fff;">Click để hiển thị script</p>
+          </div>
+          <div class="script-content" style="display: none;">
+            <textarea readonly style="width:100%; height:100px; border-radius: 8px; padding: 10px; resize:none; background:#222; color:#0f0; font-family: monospace;">
+loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/3b2169cf53bc6104dabe8e19562e5cc2.lua"))()
+            </textarea>
+            <a class="button copy-btn" href="javascript:void(0)">Copy Script</a>
+            <a class="button" href="javascript:void(0)" onclick="toggleScript(this)">Ẩn lại</a>
+          </div>
+        </div>
+      </div>      
+      <div class="executor-card">
+        <p class="info-text">Script Xero Hub</p>
+        <div class="script-toggle">
+          <div class="script-cover">
+            <img src=" https://i.ytimg.com/vi/3VmWiDinsTI/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLAtGLudPx0GO2pgXfgyueJ2OpuStA"" alt="Click để hiện script" style="width: 100%; height: 180px; border-radius: 12px; object-fit: cover; cursor: pointer; box-shadow: 0 0 15px #00ffcc;">
+            <p style="margin-top: 10px; color: #fff; font-weight: 700; text-shadow: 0 0 5px #fff;">Click để hiển thị script</p>
+          </div>
+          <div class="script-content" style="display: none;">
+            <textarea readonly style="width:100%; height:100px; border-radius: 8px; padding: 10px; resize:none; background:#222; color:#0f0; font-family: monospace;">
+getgenv().Team = "Marines"
+getgenv().Hide_Menu = false
+getgenv().Auto_Execute = false
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Xero2409/XeroHub/refs/heads/main/main.lua"))()
+            </textarea>
+            <a class="button copy-btn" href="javascript:void(0)">Copy Script</a>
+            <a class="button" href="javascript:void(0)" onclick="toggleScript(this)">Ẩn lại</a>
+          </div>
+        </div>
+      </div>
   <div class="footer-text">© 2025 FUTURE EXECUTOR : https://discord.gg/DdGAmF28h2</div>
 
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const popup = document.getElementById('intro-popup');
-      const closeBtn = document.getElementById('close-popup-btn');
-
-      function setPopupClosed() {
-        popup.style.display = 'none';
-        const expireTime = Date.now() + 60 * 60 * 1000; // 1 hour
-        localStorage.setItem('introPopupClosedUntil', expireTime.toString());
-      }
-
-      closeBtn.addEventListener('click', () => {
-        setPopupClosed();
+    // Copy Script
+    document.addEventListener("DOMContentLoaded", () => {
+      document.querySelectorAll('.copy-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const textarea = btn.previousElementSibling;
+          textarea.select();
+          textarea.setSelectionRange(0, 99999);
+          navigator.clipboard.writeText(textarea.value).then(() => {
+            const original = btn.textContent;
+            btn.textContent = "Copied!";
+            setTimeout(() => btn.textContent = original, 1500);
+          }).catch(() => alert("Copy thất bại! Vui lòng copy thủ công."));
+        });
       });
 
-      const closedUntil = localStorage.getItem('introPopupClosedUntil');
-      if (!closedUntil || Date.now() > closedUntil) {
-        popup.style.display = 'flex';
-      }
+      document.querySelectorAll('.script-cover').forEach(cover => {
+        cover.addEventListener('click', () => {
+          cover.style.display = 'none';
+          cover.nextElementSibling.style.display = 'block';
+        });
+      });
     });
+
+    function toggleScript(btn) {
+      const content = btn.parentElement;
+      const cover = content.previousElementSibling;
+      content.style.display = 'none';
+      cover.style.display = 'block';
+    }
   </script>
 </body>
 </html>
+
