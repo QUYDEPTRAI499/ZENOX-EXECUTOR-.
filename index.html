@@ -247,10 +247,22 @@
       text-align: center;
     }
 
-    @keyframes pulse {
-      0%, 100% { text-shadow: 0 0 10px #fff; }
-      50% { text-shadow: 0 0 20px #fff; }
-    }
+ .animated-line {
+  width: 200px;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, #a020f0, transparent);
+  background-size: 200% 100%;
+  animation: moveLine 2s linear infinite;
+  margin-bottom: 20px;
+  border-radius: 4px;
+  box-shadow: 0 0 10px #a020f0;
+}
+
+@keyframes moveLine {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
 
     /* Popup giới thiệu */
     #intro-popup {
