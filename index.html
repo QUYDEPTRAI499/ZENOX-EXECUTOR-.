@@ -197,7 +197,6 @@
   transform: translateY(0);
 }
 
-
   </style>
 </head>
 <body>
@@ -496,5 +495,27 @@ loadstring(game:HttpGet("https://scripts.alchemyhub.xyz"))()
       cover.style.display = 'block';
     }
   </script>
+  <script>
+// Scroll reveal effect - chỉ cần chèn một lần
+(function() {
+  const revealElements = document.querySelectorAll('.fade-in-up');
+
+  function revealOnScroll() {
+    const windowHeight = window.innerHeight;
+    revealElements.forEach(el => {
+      const elementTop = el.getBoundingClientRect().top;
+      if (elementTop < windowHeight - 50) {
+        el.classList.add('visible');
+      }
+    });
+  }
+
+  window.addEventListener('scroll', revealOnScroll);
+  window.addEventListener('load', () => {
+    revealElements.forEach(el => el.classList.add('fade-in-up'));
+    revealOnScroll();
+  });
+})();
+</script>
 </body>
   </html>
