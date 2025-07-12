@@ -116,20 +116,24 @@
       text-align: center;
     }
 
- .animated-line {
+.animated-line {
   width: 200px;
   height: 4px;
-  background: linear-gradient(90deg, transparent, #a020f0, transparent);
-  background-size: 200% 100%;
-  animation: moveLine 2s linear infinite;
+  background: #a020f0;
+  box-shadow: 0 0 12px #a020f0, 0 0 24px #a020f0;
+  animation: pulseLine 1.5s ease-in-out infinite;
   margin-bottom: 20px;
-  border-radius: 4px;
-  box-shadow: 0 0 10px #a020f0;
+  border-radius: 2px;
 }
-
-@keyframes moveLine {
-  0% { background-position: 200% 0; }
-  100% { background-position: -200% 0; }
+@keyframes pulseLine {
+  0%, 100% {
+    transform: scaleX(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scaleX(2.5);
+    opacity: 1;
+  }
 }
 
 
