@@ -203,14 +203,25 @@
   <h1>ZENOX EXECUTOR</h1>
   <div class="animated-line"></div>
 
-  <div id="intro-popup" style="display:none; position:fixed; top:50%; left:50%; transform:translate(-50%, -50%); background:#222; border-radius:16px; box-shadow:0 0 15px #00ffcc; overflow:hidden; z-index:1000;">
-  <div style="position:relative;">
-    <img src="https://cdn.discordapp.com/attachments/1329426349034836031/1393571080706195456/standard_5.gif?ex=68745074&is=6872fef4&hm=01a09dca5dbf22779c4268cbac13c8df2e1d858c61edf4fe12087de691fed738& " alt="Giới thiệu" style="width:100%; display:block;">
+
+<div id="intro-popup" style="display:none; position:fixed; top:50%; left:50%; transform:translate(-50%, -50%); background:#000; border-radius:16px; box-shadow:0 0 15px #00ffcc; overflow:hidden; z-index:1000; width:90%; max-width:600px;">
+
+  <!-- Nút đóng -->
+  <button onclick="document.getElementById('intro-popup').style.display='none'"
+    style="position:absolute; top:10px; right:15px; background:transparent; border:none; font-size:1.5em; color:white; cursor:pointer; text-shadow: 0 0 10px #00ffcc;">
+    ✕
+  </button>
+
+  <!-- Ảnh và chữ -->
+  <div style="position:relative; width:100%; height:auto;">
     
-    <!-- Một dòng chữ ở trên ảnh -->
-    <div style="position:absolute; top:10px; left:0; right:0; text-align:center; font-weight:bold; color:#fff; font-size:1.2em; text-shadow:0 0 5px #000;">
-      Chào mừng bạn đến với ZENOX EXECUTOR Đây là trang tải xuống các executor tốt nhất cho nhiều nền tảng 🚀 !
+    <!-- Chữ trên ảnh -->
+    <div style="position:absolute; top:10px; left:0; width:100%; text-align:center; color:#fff; font-size:1.4em; font-weight:bold; text-shadow:0 0 10px #00ffcc;">
+      Chào mừng bạn đến với ZENOX EXECUTOR Đây là trang tải xuống các executor tốt nhất cho nhiều nền tảng !🚀
     </div>
+
+    <!-- Ảnh nền -->
+    <img src="https://cdn.discordapp.com/attachments/1329426349034836031/1393571080706195456/standard_5.gif?ex=68745074&is=6872fef4&hm=01a09dca5dbf22779c4268cbac13c8df2e1d858c61edf4fe12087de691fed738& " alt="Giới thiệu" style="width:100%; display:block;">
   </div>
 </div>
 
