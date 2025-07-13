@@ -206,7 +206,7 @@
   <!-- Popup giới thiệu -->
   <div id="intro-popup" style="display:none;">
     <img src="https://cdn.discordapp.com/attachments/1329426349034836031/1393571080706195456/standard_5.gif?ex=6873a7b4&is=68725634&hm=8ff8edb9aa02890509467cd4a28f1c61297e2762fbcf5d8d434abf8a6ad139ce& " alt="Giới thiệu"/>
-    <p>Chào mừng bạn đến với FUTURE EXECUTOR! Đây là trang tải xuống các executor tốt nhất cho nhiều nền tảng.</p>
+    <p>Chào mừng bạn đến với ZENOX EXECUTOR! Đây là trang tải xuống các executor tốt nhất cho nhiều nền tảng.</p>
     <button id="close-popup-btn">Đóng</button>
   </div>
 
@@ -522,12 +522,10 @@ loadstring(game:HttpGet("https://scripts.alchemyhub.xyz"))()
     const popup = document.getElementById("intro-popup");
     const closeBtn = document.getElementById("close-popup-btn");
 
-    // Kiểm tra nếu popup chưa hiển thị lần nào
-    if (!localStorage.getItem("popupShown")) {
-      popup.style.display = "block";
-      localStorage.setItem("popupShown", "true");
-    }
+    // LUÔN hiển thị popup mỗi lần vào trang
+    popup.style.display = "block";
 
+    // Khi bấm nút "Đóng" thì ẩn popup
     closeBtn.addEventListener("click", () => {
       popup.style.display = "none";
     });
