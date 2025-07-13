@@ -200,30 +200,49 @@
   </style>
 </head>
 <body>
-  <h1>ZENOX EXECUTOR</h1>
-  <div class="animated-line"></div>
 
+<div id="intro-popup" style="
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #111;
+  border-radius: 16px;
+  box-shadow: 0 0 20px #00000088;
+  z-index: 9999;
+  max-width: 500px;
+  width: 90%;
+  overflow: hidden;
+  font-family: 'Segoe UI', sans-serif;
+  text-align: center;
+  color: #fff;
+">
 
-<div id="intro-popup" style="display:none; position:fixed; top:50%; left:50%; transform:translate(-50%, -50%); background:#000; border-radius:16px; box-shadow:0 0 15px #00ffcc; overflow:hidden; z-index:1000; width:90%; max-width:600px;">
+  <!-- Nút Đóng -->
+  <button onclick="document.getElementById('intro-popup').style.display='none'" style="
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: transparent;
+    border: none;
+    font-size: 1.5em;
+    color: white;
+    cursor: pointer;
+  ">✕</button>
 
-  <!-- Nút đóng -->
-  <button onclick="document.getElementById('intro-popup').style.display='none'"
-    style="position:absolute; top:10px; right:15px; background:transparent; border:none; font-size:1.5em; color:white; cursor:pointer; text-shadow: 0 0 10px #00ffcc;">
-    ✕
-  </button>
-
-  <!-- Ảnh và chữ -->
-  <div style="position:relative; width:100%; height:auto;">
-    
-    <!-- Chữ trên ảnh -->
-    <div style="position:absolute; top:10px; left:0; width:100%; text-align:center; color:#fff; font-size:1.4em; font-weight:bold; text-shadow:0 0 10px #00ffcc;">
-      Chào mừng bạn đến với ZENOX EXECUTOR Đây là trang tải xuống các executor tốt nhất cho nhiều nền tảng !🚀
-    </div>
-
-    <!-- Ảnh nền -->
-    <img src="https://cdn.discordapp.com/attachments/1329426349034836031/1393571080706195456/standard_5.gif?ex=68745074&is=6872fef4&hm=01a09dca5dbf22779c4268cbac13c8df2e1d858c61edf4fe12087de691fed738& " alt="Giới thiệu" style="width:100%; display:block;">
+  <!-- Nội dung trên ảnh -->
+  <div style="padding: 15px 20px; font-size: 1.1em; font-weight: bold;">
+    Chào mừng bạn đến với<span style="color: #00ffcc">ZENOX EXECUTOR</span><br>
+    Đây là trang tải xuống các executor tốt nhất cho nhiều nền tảng! 🚀
   </div>
+
+  <!-- Ảnh GIF giới thiệu -->
+  <img src="https://cdn.discordapp.com/attachments/1329426349034836031/1393571080706195456/standard_5.gif?ex=68745074&is=6872fef4&hm=01a09dca5dbf22779c4268cbac13c8df2e1d858c61edf4fe12087de691fed738&" 
+       alt="Giới thiệu" 
+       style="width: 100%; border-bottom-left-radius: 16px; border-bottom-right-radius: 16px; display: block;">
 </div>
+
 
 
   <!-- EXECUTOR ANDROID VNG -->
