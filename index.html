@@ -207,9 +207,9 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: #111;
+  background: rgba(20, 20, 20, 0.8); /* Đen nhạt, có thể nhìn xuyên */
   border-radius: 16px;
-  box-shadow: 0 0 25px #00ffccaa;
+  box-shadow: 0 0 20px #00ffcc88;
   z-index: 9999;
   max-width: 500px;
   width: 90%;
@@ -217,8 +217,10 @@
   font-family: 'Segoe UI', sans-serif;
   color: #fff;
   text-align: center;
-  border: 2px solid #00ffcc;
+  border: 1px solid #00ffcc;
+  backdrop-filter: blur(6px); /* Làm mờ nền phía sau popup */
 ">
+
 
   <!-- Nút đóng góc phải -->
   <button onclick="hidePopup()" style="
