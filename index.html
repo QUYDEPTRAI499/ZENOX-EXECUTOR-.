@@ -251,32 +251,34 @@
        style="width: 100%;
               border-radius: 16px;
               display: block;
-              box-shadow: 0 0 12px #00ffcc;">
-
-  <!-- Nút dưới cùng bên phải -->
-  <div style="display: flex; justify-content: flex-end; gap: 10px; padding: 10px 15px 15px;">
-    <button onclick="hidePopup()" style="
-      background: #00ffcc;
-      color: #000;
-      padding: 8px 16px;
-      border: none;
-      border-radius: 6px;
+<div id="intro-popup" style="..."> <!-- Popup đã chỉnh sửa nền như ở trên -->
+  <div style="position: relative;">
+    <img src="https://cdn.discordapp.com/attachments/1329426349034836031/1393571080706195456/standard_5.gif?ex=68745074&is=6872fef4&hm=01a09dca5dbf22779c4268cbac13c8df2e1d858c61edf4fe12087de691fed738&"
+         alt="Giới thiệu"
+         style="width: 100%; border-radius: 16px; box-shadow: 0 0 12px #00ffcc;">
+    <div style="
+      position: absolute;
+      top: 10px;
+      left: 0;
+      width: 100%;
+      color: #fff;
       font-weight: bold;
-      cursor: pointer;
-    ">Ẩn popup</button>
-
-    <button onclick="hideFor24Hours()" style="
-      background: #00ffcc;
-      color: #000;
-      padding: 8px 16px;
-      border: none;
-      border-radius: 6px;
-      font-weight: bold;
-      cursor: pointer;
-    ">Ẩn 24 giờ</button>
+      font-size: 1.1em;
+      text-align: center;
+      padding: 5px;
+      background: rgba(0, 0, 0, 0.5);
+      border-top-left-radius: 16px;
+      border-top-right-radius: 16px;
+    ">
+      Chào mừng bạn đến với ZENOX EXECUTOR! 🚀
+    </div>
+  </div>
+  <p style="margin: 10px 20px;">Đây là trang tải xuống các executor tốt nhất cho nhiều nền tảng!</p>
+  <div style="display: flex; justify-content: flex-end; gap: 10px; padding: 10px;">
+    <button id="close-popup" style="background: #111; color: white; border: none; padding: 8px 16px; border-radius: 8px;">Đóng</button>
+    <button id="close-popup-24h" style="background: #111; color: white; border: none; padding: 8px 16px; border-radius: 8px;">Đóng 24h</button>
   </div>
 </div>
-
 
   
   <!-- EXECUTOR ANDROID VNG -->
