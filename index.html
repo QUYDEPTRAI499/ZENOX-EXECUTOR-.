@@ -9,14 +9,14 @@
       margin: 0;
       /* MÀU NỀN MỚI */
       background: linear-gradient(128.92deg,
-        #6a5acd 3.94%,  /* slateblue */
-        #7b68ee 26.1%,  /* mediumslateblue */
-        #9370db 39.82%, /* medium purple */
-        #8a2be2 56.89%, /* blueviolet */
-        #4b0082 76.45%  /* indigo */
+        #00FFFF 3.94%,  /* Cyan */
+        #FF00FF 26.1%,  /* Magenta */
+        #8A2BE2 39.82%, /* BlueViolet */
+        #00BFFF 56.89%, /* DeepSkyBlue */
+        #FF1493 76.45%  /* DeepPink */
       );
       background-size: 400% 400%;
-      animation: moveGradient 15s ease infinite;
+      animation: moveGradient 10s ease infinite; /* Thay đổi tốc độ */
       /* CÁC THUỘC TÍNH KHÁC VẪN GIỮ NGUYÊN */
       color: #fff;
       font-family: 'Segoe UI', sans-serif;
@@ -45,11 +45,11 @@
     .section {
       width: 90%;
       max-width: 1200px;
-      background: #444;
+      background: rgba(0, 0, 0, 0.4);
       border-radius: 20px;
       padding: 30px;
       margin: 20px 0;
-      box-shadow: 0 0 20px #00000088;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
     }
 
     .section-title {
@@ -57,7 +57,6 @@
       margin-bottom: 20px;
       font-weight: bold;
       text-shadow: 0 0 8px #ffffff;
-      /* Removed icon and gap */
     }
 
     .card-container {
@@ -68,10 +67,10 @@
     }
 
     .executor-card {
-      background: #3a3a3a;
+      background: rgba(0, 0, 0, 0.6);
       padding: 30px;
       border-radius: 16px;
-      box-shadow: 0 0 20px #ffffff55;
+      box-shadow: 0 0 20px #00FFFF99; /* Thay đổi box-shadow */
       text-align: center;
       width: 300px;
       position: relative;
@@ -81,7 +80,7 @@
       position: absolute;
       top: 8px;
       left: 8px;
-      background: #00ffcccc;
+      background: #00FFCC; /* Thay đổi màu */
       color: #000;
       font-weight: 700;
       font-size: 0.9em;
@@ -89,7 +88,7 @@
       border-radius: 10px;
       text-transform: uppercase;
       user-select: none;
-      box-shadow: 0 0 8px #00ffccaa;
+      box-shadow: 0 0 8px #00FFCCAA; /* Thay đổi box-shadow */
     }
 
     .executor-card img {
@@ -103,13 +102,13 @@
     .executor-card a.button {
       display: inline-block;
       padding: 10px 20px;
-      background: #00ffcc;
+      background: #00FFCC; /* Thay đổi màu */
       color: #000;
       text-decoration: none;
       border-radius: 8px;
       font-weight: bold;
       font-size: 1em;
-      box-shadow: 0 0 10px #00ffccaa;
+      box-shadow: 0 0 10px #00FFCCAA; /* Thay đổi box-shadow */
       transition: transform 0.3s;
     }
 
@@ -135,8 +134,8 @@
     .animated-line {
       width: 200px;
       height: 4px;
-      background: #4bf2f2;
-      box-shadow: 0 0 12px #4bf2f2, 0 0 24px #4bf2f2;
+      background: #00FFFF; /* Thay đổi màu */
+      box-shadow: 0 0 12px #00FFFF, 0 0 24px #00FFFF; /* Thay đổi box-shadow */
       animation: pulseLine 1.5s ease-in-out infinite;
       margin-bottom: 20px;
       border-radius: 2px;
@@ -152,16 +151,15 @@
       }
     }
 
-
     /* Popup giới thiệu */
     #intro-popup {
       position: fixed;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      background: #222;
+      background: rgba(0, 0, 0, 0.8);
       border-radius: 15px;
-      box-shadow: 0 0 25px #00ffccbb;
+      box-shadow: 0 0 25px #00FFCCBB; /* Thay đổi box-shadow */
       padding: 30px 40px;
       max-width: 400px;
       width: 90%;
@@ -185,13 +183,13 @@
     #intro-popup button {
       margin-top: 15px;
       padding: 10px 20px;
-      background: #00ffcc;
+      background: #00FFCC; /* Thay đổi màu */
       border: none;
       border-radius: 8px;
       font-weight: bold;
       cursor: pointer;
       color: #000;
-      box-shadow: 0 0 10px #00ffccaa;
+      box-shadow: 0 0 10px #00FFCCAA; /* Thay đổi box-shadow */
       transition: background 0.3s;
     }
     #intro-popup button:hover {
@@ -212,7 +210,6 @@
       opacity: 1;
       transform: translateY(0);
     }
-
   </style>
 </head>
 <body>
