@@ -7,7 +7,17 @@
   <style>
     body {
       margin: 0;
-      background: #2f2f2f;
+      /* MÀU NỀN MỚI */
+      background: linear-gradient(128.92deg,
+        #6a5acd 3.94%,  /* slateblue */
+        #7b68ee 26.1%,  /* mediumslateblue */
+        #9370db 39.82%, /* medium purple */
+        #8a2be2 56.89%, /* blueviolet */
+        #4b0082 76.45%  /* indigo */
+      );
+      background-size: 400% 400%;
+      animation: moveGradient 15s ease infinite;
+      /* CÁC THUỘC TÍNH KHÁC VẪN GIỮ NGUYÊN */
       color: #fff;
       font-family: 'Segoe UI', sans-serif;
       display: flex;
@@ -16,6 +26,12 @@
       justify-content: flex-start;
       min-height: 100vh;
       padding: 40px 0;
+    }
+
+    @keyframes moveGradient {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
 
     h1 {
@@ -45,7 +61,7 @@
     }
 
     .card-container {
-    display: flex;
+      display: flex;
       flex-wrap: wrap;
       justify-content: center;
       gap: 30px;
@@ -116,25 +132,25 @@
       text-align: center;
     }
 
-.animated-line {
-  width: 200px;
-  height: 4px;
-  background: #4bf2f2;
-  box-shadow: 0 0 12px #4bf2f2, 0 0 24px #4bf2f2;
-  animation: pulseLine 1.5s ease-in-out infinite;
-  margin-bottom: 20px;
-  border-radius: 2px;
-}
-@keyframes pulseLine {
-  0%, 100% {
-    transform: scaleX(1);
-    opacity: 0.6;
-  }
-  50% {
-    transform: scaleX(2.5);
-    opacity: 1;
-  }
-}
+    .animated-line {
+      width: 200px;
+      height: 4px;
+      background: #4bf2f2;
+      box-shadow: 0 0 12px #4bf2f2, 0 0 24px #4bf2f2;
+      animation: pulseLine 1.5s ease-in-out infinite;
+      margin-bottom: 20px;
+      border-radius: 2px;
+    }
+    @keyframes pulseLine {
+      0%, 100% {
+        transform: scaleX(1);
+        opacity: 0.6;
+      }
+      50% {
+        transform: scaleX(2.5);
+        opacity: 1;
+      }
+    }
 
 
     /* Popup giới thiệu */
@@ -187,15 +203,15 @@
       to { opacity: 1; transform: translate(-50%, -50%); }
     }
     .fade-in-up {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-}
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
 
-.fade-in-up.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
+    .fade-in-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
   </style>
 </head>
@@ -203,20 +219,18 @@
   <h1>ZENOX EXECUTOR</h1>
   <div class="animated-line"></div>
 
-  <!-- Popup giới thiệu -->
   <div id="intro-popup" style="display:none;">
     <img src="https://cdn.discordapp.com/attachments/1329426349034836031/1393571080706195456/standard_5.gif?ex=6873a7b4&is=68725634&hm=8ff8edb9aa02890509467cd4a28f1c61297e2762fbcf5d8d434abf8a6ad139ce& " alt="Giới thiệu"/>
     <p>Chào mừng bạn đến với ZENOX EXECUTOR! Đây là trang tải xuống các executor tốt nhất cho nhiều nền tảng.</p>
     <button id="close-popup-btn">Đóng</button>
   </div>
 
-  <!-- EXECUTOR ANDROID VNG -->
   <div class="section fade-in-up">
     <div class="section-title">
       EXECUTOR ANDROID VNG
-      </div>
-      <div class="card-container">
-        <div class="executor-card fade-in-up">
+    </div>
+    <div class="card-container">
+      <div class="executor-card fade-in-up">
         <div class="status-label">Hoạt động</div>
         <img src="https://executors-lion-hub.netlify.app/codex.png " alt="Executor 2"/>
         <p class="info-text">CODEX</p>
@@ -239,14 +253,13 @@
         <img src="https://executors-lion-hub.netlify.app/cry.webp" alt="Executor 4"/>
         <p class="info-text">CRYPTIC</p>
         <a class="button" href="https://getcryptic.net/" target="_blank">Tải về</a>
-        </div>
+      </div>
     </div>
   </div>
 
-  <!-- EXECUTOR ANDROID -->
   <div class="section fade-in-up">
     <div class="section-title">
-      EXECUTOR ANDROID 
+      EXECUTOR ANDROID
     </div>
     <div class="card-container">
       <div class="executor-card fade-in-up">
@@ -266,7 +279,7 @@
         <img src="https://executors-lion-hub.netlify.app/arcx.png" alt="Executor 3"/>
         <p class="info-text">ARCEUS-X-NEO</p>
         <a class="button" href="https://spdmteam.com/index?os=android" target="_blank">Tải về</a>
-     </div>
+      </div>
       <div class="executor-card fade-in-up ">
         <div class="status-label">Hoạt động</div>
         <img src="https://executors-lion-hub.netlify.app/tri.png" alt="Executor 4"/>
@@ -282,7 +295,6 @@
     </div>
   </div>
 
-  <!-- EXECUTOR IOS -->
   <div class="section fade-in-up ">
     <div class="section-title">EXECUTOR IOS </div>
     <div class="card-container">
@@ -313,7 +325,6 @@
     </div>
   </div>
   
-    <!-- EXECUTOR IOS -->
   <div class="section fade-in-up">
     <div class="section-title">EXECUTOR IOS VNG</div>
     <div class="card-container">
@@ -326,7 +337,6 @@
     </div>
   </div>
 
-  <!-- EXECUTOR PC -->
   <div class="section fade-in-up">
     <div class="section-title">EXECUTOR PC</div>
     <div class="card-container">
@@ -363,10 +373,9 @@
     </div>
   </div>
  
-<div class="section fade-in-up">
+  <div class="section fade-in-up">
     <div class="section-title">SCRIPT EXCUTOR </div>
     <div class="card-container">
-      <!-- Script 3: Shinichi Hub -->
       <div class="executor-card fade-in-up ">
         <p class="info-text">Script Shinichi Hub</p>
         <div class="script-toggle">
@@ -384,7 +393,6 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/shinichi-dz/phucshins
           </div>
         </div>
       </div>
-      <!-- Script 2: Che bằng ảnh và hiện lại -->
       <div class="executor-card fade-in-up ">
         <p class="info-text">Script Nexon Hub</p>
         <div class="script-toggle">
@@ -474,6 +482,8 @@ loadstring(game:HttpGet("https://scripts.alchemyhub.xyz"))()
           </div>
         </div>
       </div>
+    </div>
+  </div>
   <div class="footer-text">© ZENOX COMMUNITY : https://discord.gg/DdGAmF28h2</div>
 
   <script>
@@ -508,40 +518,40 @@ loadstring(game:HttpGet("https://scripts.alchemyhub.xyz"))()
     }
   </script>
   <script>
-// Scroll reveal effect - chỉ cần chèn một lần
-(function() {
-  const revealElements = document.querySelectorAll('.fade-in-up');
+    // Scroll reveal effect - chỉ cần chèn một lần
+    (function() {
+      const revealElements = document.querySelectorAll('.fade-in-up');
 
-  function revealOnScroll() {
-    const windowHeight = window.innerHeight;
-    revealElements.forEach(el => {
-      const elementTop = el.getBoundingClientRect().top;
-      if (elementTop < windowHeight - 50) {
-        el.classList.add('visible');
+      function revealOnScroll() {
+        const windowHeight = window.innerHeight;
+        revealElements.forEach(el => {
+          const elementTop = el.getBoundingClientRect().top;
+          if (elementTop < windowHeight - 50) {
+            el.classList.add('visible');
+          }
+        });
       }
+
+      window.addEventListener('scroll', revealOnScroll);
+      window.addEventListener('load', () => {
+        revealElements.forEach(el => el.classList.add('fade-in-up'));
+        revealOnScroll();
+      });
+    })();
+  </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const popup = document.getElementById("intro-popup");
+      const closeBtn = document.getElementById("close-popup-btn");
+
+      // LUÔN hiển thị popup mỗi lần vào trang
+      popup.style.display = "block";
+
+      // Khi bấm nút "Đóng" thì ẩn popup
+      closeBtn.addEventListener("click", () => {
+        popup.style.display = "none";
+      });
     });
-  }
-
-  window.addEventListener('scroll', revealOnScroll);
-  window.addEventListener('load', () => {
-    revealElements.forEach(el => el.classList.add('fade-in-up'));
-    revealOnScroll();
-  });
-})();
-</script>
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const popup = document.getElementById("intro-popup");
-    const closeBtn = document.getElementById("close-popup-btn");
-
-    // LUÔN hiển thị popup mỗi lần vào trang
-    popup.style.display = "block";
-
-    // Khi bấm nút "Đóng" thì ẩn popup
-    closeBtn.addEventListener("click", () => {
-      popup.style.display = "none";
-    });
-  });
-</script>
+  </script>
 </body>
-  </html>
+              </html>
