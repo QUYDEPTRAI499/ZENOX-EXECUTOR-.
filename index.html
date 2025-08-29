@@ -5,38 +5,43 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>ZENOX EXECUTOR</title>
   <style>
-    body {
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600;700&display=swap');
+    
+    * {
       margin: 0;
-      /* MÀU NỀN ĐA SẮC MỚI */
-      background: linear-gradient(128.92deg,
-        #ff00ff 0%,     /* Hồng neon */
-        #ff8c00 15%,    /* Cam đậm */
-        #ffd700 30%,    /* Vàng gold */
-        #00ff00 45%,    /* Xanh lá neon */
-        #00ffff 60%,    /* Xanh ngọc */
-        #0000ff 75%,    /* Xanh dương */
-        #8a2be2 90%,    /* Tím violet */
-        #ff00ff 100%    /* Lặp lại hồng neon */
-      );
-      background-size: 400% 400%;
-      animation: moveGradient 15s ease infinite; /* Giữ tốc độ */
-      /* CÁC THUỘC TÍNH KHÁC VẪN GIỮ NGUYÊN */
-      color: #fff;
-      font-family: 'Segoe UI', sans-serif;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Rajdhani', sans-serif;
+      background: #0a0a0a;
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: flex-start;
-      min-height: 100vh;
+      color: #fff;
+      overflow-x: hidden;
+      position: relative;
       padding: 40px 0;
     }
 
-    @keyframes moveGradient {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(0, 255, 136, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(0, 204, 255, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(255, 0, 136, 0.05) 0%, transparent 50%),
+        linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+      z-index: -1;
     }
-    
+
     @keyframes pulse {
       0% { transform: scale(1); opacity: 1; }
       50% { transform: scale(1.05); opacity: 0.9; }
@@ -44,21 +49,27 @@
     }
     
     h1 {
-      color: #fff;
+      font-family: 'Orbitron', monospace;
       font-size: 5em;
       margin-bottom: 20px;
       animation: pulse 2s infinite;
-      text-shadow: 0 0 15px #fff;
+      background: linear-gradient(45deg, #00ff88, #0080ff, #ff0080);
+      background-size: 200% 200%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-shadow: 0 0 30px rgba(0, 255, 136, 0.5);
     }
-
+    
     .section {
       width: 90%;
       max-width: 1200px;
-      background: rgba(0, 0, 0, 0.7); /* Nền tối hơn để làm nổi bật màu sắc */
+      background: rgba(255, 255, 255, 0.05);
       border-radius: 20px;
       padding: 30px;
       margin: 20px 0;
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(0, 255, 136, 0.2);
     }
 
     .section-title {
@@ -76,29 +87,30 @@
     }
 
     .executor-card {
-      background: rgba(0, 0, 0, 0.85); /* Nền tối hơn cho card */
+      background: rgba(255, 255, 255, 0.05);
       padding: 30px;
       border-radius: 16px;
-      box-shadow: 0 0 20px rgba(0, 247, 210, 0.6); /* Đổi màu box-shadow thành xanh neon */
+      box-shadow: 0 0 20px rgba(0, 255, 136, 0.5);
       text-align: center;
       width: 300px;
       position: relative;
-      border: 1px solid rgba(0, 247, 210, 0.4); /* Đổi màu border */
+      border: 1px solid rgba(0, 255, 136, 0.2);
+      backdrop-filter: blur(10px);
     }
 
     .executor-card .status-label {
       position: absolute;
       top: 8px;
       left: 8px;
-      background: #00f7d2; /* Đổi màu xanh neon */
-      color: #000;
+      background: #00ff88;
+      color: #0a0a0a;
       font-weight: 700;
       font-size: 0.9em;
       padding: 3px 8px;
       border-radius: 10px;
       text-transform: uppercase;
       user-select: none;
-      box-shadow: 0 0 8px rgba(0, 247, 210, 0.8); /* Đổi màu box-shadow */
+      box-shadow: 0 0 8px rgba(0, 255, 136, 0.8);
     }
 
     .executor-card img {
@@ -112,13 +124,13 @@
     .executor-card a.button {
       display: inline-block;
       padding: 10px 20px;
-      background: #00f7d2; /* Đổi màu xanh neon */
-      color: #000;
+      background: #00ff88;
+      color: #0a0a0a;
       text-decoration: none;
       border-radius: 8px;
       font-weight: bold;
       font-size: 1em;
-      box-shadow: 0 0 10px rgba(0, 247, 210, 0.8); /* Đổi màu box-shadow */
+      box-shadow: 0 0 10px rgba(0, 255, 136, 0.8);
       transition: transform 0.3s;
     }
 
@@ -144,12 +156,13 @@
     .animated-line {
       width: 200px;
       height: 4px;
-      background: #00f7d2; /* Đổi màu xanh neon */
-      box-shadow: 0 0 12px #00f7d2, 0 0 24px #00f7d2; /* Đổi màu box-shadow */
+      background: #00ff88;
+      box-shadow: 0 0 12px #00ff88, 0 0 24px #00ff88;
       animation: pulseLine 1.5s ease-in-out infinite;
       margin-bottom: 20px;
       border-radius: 2px;
     }
+
     @keyframes pulseLine {
       0%, 100% {
         transform: scaleX(1);
@@ -161,15 +174,14 @@
       }
     }
 
-    /* Popup giới thiệu */
     #intro-popup {
       position: fixed;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      background: rgba(0, 0, 0, 0.9); /* Nền tối hơn cho popup */
+      background: rgba(0, 0, 0, 0.8);
       border-radius: 15px;
-      box-shadow: 0 0 25px rgba(0, 247, 210, 0.8); /* Đổi màu box-shadow */
+      box-shadow: 0 0 25px rgba(0, 255, 136, 0.8);
       padding: 30px 40px;
       max-width: 400px;
       width: 90%;
@@ -181,6 +193,7 @@
       align-items: center;
       animation: popupFadeIn 0.5s ease forwards;
     }
+
     #intro-popup img {
       width: 300px;
       height: auto;
@@ -190,26 +203,29 @@
       box-shadow: none;
       background: transparent;
     }
+
     #intro-popup button {
       margin-top: 15px;
       padding: 10px 20px;
-      background: #00f7d2; /* Đổi màu xanh neon */
+      background: #00ff88;
       border: none;
       border-radius: 8px;
       font-weight: bold;
       cursor: pointer;
-      color: #000;
-      box-shadow: 0 0 10px rgba(0, 247, 210, 0.8); /* Đổi màu box-shadow */
+      color: #0a0a0a;
+      box-shadow: 0 0 10px rgba(0, 255, 136, 0.8);
       transition: background 0.3s;
     }
+
     #intro-popup button:hover {
-      background: #00c4a9; /* Đậm hơn khi hover */
+      background: #00c4a9;
     }
 
     @keyframes popupFadeIn {
       from { opacity: 0; transform: translate(-50%, -60%); }
       to { opacity: 1; transform: translate(-50%, -50%); }
     }
+
     .fade-in-up {
       opacity: 0;
       transform: translateY(30px);
@@ -220,13 +236,21 @@
       opacity: 1;
       transform: translateY(0);
     }
-    .script-cover img, .script-cover p {
-      box-shadow: 0 0 15px rgba(0, 247, 210, 0.8);
+
+    .script-cover img {
+      box-shadow: 0 0 15px rgba(0, 255, 136, 0.8);
     }
+
+    .script-cover p {
+      color: #fff;
+      font-weight: 700;
+      text-shadow: 0 0 5px #fff;
+    }
+
     .copy-btn, .script-content a.button:first-of-type {
-      background: #00f7d2;
-      color: #000;
-      box-shadow: 0 0 10px rgba(0, 247, 210, 0.8);
+      background: #00ff88;
+      color: #0a0a0a;
+      box-shadow: 0 0 10px rgba(0, 255, 136, 0.8);
     }
   </style>
 </head>
@@ -395,7 +419,7 @@
         <p class="info-text">Script Shinichi Hub</p>
         <div class="script-toggle">
           <div class="script-cover">
-            <img src="https://scriptdee.com/wp-content/uploads/2025/06/Shinichi-Hub-BF.png" alt="Click để hiện script" style="width: 100%; height: 180px; border-radius: 12px; object-fit: cover; cursor: pointer; box-shadow: 0 0 15px #00f7d2;">
+            <img src="https://scriptdee.com/wp-content/uploads/2025/06/Shinichi-Hub-BF.png" alt="Click để hiện script" style="width: 100%; height: 180px; border-radius: 12px; object-fit: cover; cursor: pointer; box-shadow: 0 0 15px rgba(0, 255, 136, 0.8);">
             <p style="margin-top: 10px; color: #fff; font-weight: 700; text-shadow: 0 0 5px #fff;">Click để hiển thị script</p>
           </div>
           <div class="script-content" style="display: none;">
@@ -412,7 +436,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/shinichi-dz/phucshins
         <p class="info-text">Script Nexon Hub</p>
         <div class="script-toggle">
           <div class="script-cover">
-            <img src="https://i.ytimg.com/vi/ATHtjvusAoE/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLAARxgIpbP3hQIM8tgmpNJ7haBi1Q " alt="Click để hiện script" style="width: 100%; height: 180px; border-radius: 12px; object-fit: cover; cursor: pointer; box-shadow: 0 0 15px #00f7d2;">
+            <img src="https://i.ytimg.com/vi/ATHtjvusAoE/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLAARxgIpbP3hQIM8tgmpNJ7haBi1Q " alt="Click để hiện script" style="width: 100%; height: 180px; border-radius: 12px; object-fit: cover; cursor: pointer; box-shadow: 0 0 15px rgba(0, 255, 136, 0.8);">
             <p style="margin-top: 10px; color: #fff; font-weight: 700; text-shadow: 0 0 5px #fff;">Click để hiển thị script</p>
           </div>
           <div class="script-content" style="display: none;">
@@ -430,7 +454,7 @@ loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/bf92d246f65d7d
         <p class="info-text">Script W-azure</p>
         <div class="script-toggle">
           <div class="script-cover">
-            <img src="https://i.ytimg.com/vi/z85RWfnLr-U/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLCLrjCMhYPZ9FeodhBI8Nu5Rg32oA" alt="Click để hiện script" style="width: 100%; height: 180px; border-radius: 12px; object-fit: cover; cursor: pointer; box-shadow: 0 0 15px #00f7d2;">
+            <img src="https://i.ytimg.com/vi/z85RWfnLr-U/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLCLrjCMhYPZ9FeodhBI8Nu5Rg32oA" alt="Click để hiện script" style="width: 100%; height: 180px; border-radius: 12px; object-fit: cover; cursor: pointer; box-shadow: 0 0 15px rgba(0, 255, 136, 0.8);">
             <p style="margin-top: 10px; color: #fff; font-weight: 700; text-shadow: 0 0 5px #fff;">Click để hiển thị script</p>
           </div>
           <div class="script-content" style="display: none;">
@@ -446,7 +470,7 @@ loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/3b2169cf53bc61
         <p class="info-text">Script Xero Hub</p>
         <div class="script-toggle">
           <div class="script-cover">
-            <img src="https://i.ytimg.com/vi/3VmWiDinsTI/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLAtGLudPx0GO2pgXfgyueJ2OpuStA" alt="Click để hiện script" style="width: 100%; height: 180px; border-radius: 12px; object-fit: cover; cursor: pointer; box-shadow: 0 0 15px #00f7d2;">
+            <img src="https://i.ytimg.com/vi/3VmWiDinsTI/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLAtGLudPx0GO2pgXfgyueJ2OpuStA" alt="Click để hiện script" style="width: 100%; height: 180px; border-radius: 12px; object-fit: cover; cursor: pointer; box-shadow: 0 0 15px rgba(0, 255, 136, 0.8);">
             <p style="margin-top: 10px; color: #fff; font-weight: 700; text-shadow: 0 0 5px #fff;">Click để hiển thị script</p>
           </div>
           <div class="script-content" style="display: none;">
@@ -465,7 +489,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/Xero2409/XeroHub/refs
         <p class="info-text">Script Redz Hub</p>
         <div class="script-toggle">
           <div class="script-cover">
-            <img src="https://i.ytimg.com/vi/SMrG0FW1CN8/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLDkJCx9aR_t1wr0pybRadFyeJvogQ" alt="Click để hiện script" style="width: 100%; height: 180px; border-radius: 12px; object-fit: cover; cursor: pointer; box-shadow: 0 0 15px #00f7d2;">
+            <img src="https://i.ytimg.com/vi/SMrG0FW1CN8/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLDkJCx9aR_t1wr0pybRadFyeJvogQ" alt="Click để hiện script" style="width: 100%; height: 180px; border-radius: 12px; object-fit: cover; cursor: pointer; box-shadow: 0 0 15px rgba(0, 255, 136, 0.8);">
             <p style="margin-top: 10px; color: #fff; font-weight: 700; text-shadow: 0 0 5px #fff;">Click để hiển thị script</p>
           </div>
           <div class="script-content" style="display: none;">
@@ -485,7 +509,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/tlredz/Scripts/refs/h
         <p class="info-text">Script Alchemy Hub</p>
         <div class="script-toggle">
           <div class="script-cover">
-            <img src="https://camo.githubusercontent.com/172db0f4335753335a5a3148a8577b54f4898133731babc7166ecc08f85384a5/68747470733a2f2f692e7974696d672e636f6d2f76692f476e61426e537a654f35382f6d617872657364656661756c742e6a7067" alt="Click để hiện script" style="width: 100%; height: 180px; border-radius: 12px; object-fit: cover; cursor: pointer; box-shadow: 0 0 15px #00f7d2;">
+            <img src="https://camo.githubusercontent.com/172db0f4335753335a5a3148a8577b54f4898133731babc7166ecc08f85384a5/68747470733a2f2f692e7974696d672e636f6d2f76692f476e61426e537a654f35382f6d617872657364656661756c742e6a7067" alt="Click để hiện script" style="width: 100%; height: 180px; border-radius: 12px; object-fit: cover; cursor: pointer; box-shadow: 0 0 15px rgba(0, 255, 136, 0.8);">
             <p style="margin-top: 10px; color: #fff; font-weight: 700; text-shadow: 0 0 5px #fff;">Click để hiển thị script</p>
           </div>
           <div class="script-content" style="display: none;">
