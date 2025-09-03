@@ -527,6 +527,22 @@ loadstring(game:HttpGet("https://scripts.alchemyhub.xyz"))()
           </div>
         </div>
       </div>
+      <div class="executor-card fade-in-up ">
+        <p class="info-text">Script Fly Gui V3</p>
+        <div class="script-toggle">
+          <div class="script-cover">
+            <img src="https://share.google/images/x0q3FoFgiKYB8dK1s" alt="Click để hiện script" style="width: 100%; height: 180px; border-radius: 12px; object-fit: cover; cursor: pointer; box-shadow: 0 0 15px rgba(0, 255, 136, 0.8);">
+            <p style="margin-top: 10px; color: #fff; font-weight: 700; text-shadow: 0 0 5px #fff;">Click để hiển thị script</p>
+          </div>
+          <div class="script-content" style="display: none;">
+            <textarea readonly style="width:100%; height:100px; border-radius: 8px; padding: 10px; resize:none; background:#222; color:#0f0; font-family: monospace;">
+loadstring(game:HttpGet("https://raw.githubusercontent.com/XNEOFF/FlyGuiV3/main/FlyGuiV3.txt"))()
+            </textarea>
+            <a class="button copy-btn" href="javascript:void(0)">Copy Script</a>
+            <a class="button" href="javascript:void(0)" onclick="toggleScript(this)">Ẩn lại</a>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
   <div class="footer-text">© ZENOX COMMUNITY : https://discord.gg/DdGAmF28h2</div>
