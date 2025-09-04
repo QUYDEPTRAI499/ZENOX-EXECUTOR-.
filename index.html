@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>ZENOX EXECUTOR</title>
+  <title>ZENOX EXECUTOR & SCRIPT</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600;700&display=swap');
     
@@ -59,6 +59,7 @@
       -webkit-text-fill-color: transparent;
       background-clip: text;
       text-shadow: 0 0 30px rgba(0, 255, 136, 0.5);
+      text-align: center;
     }
     
     .section {
@@ -121,7 +122,7 @@
       margin-bottom: 15px;
     }
 
-    .executor-card a.button {
+    .executor-card a.button, .script-content a.button:first-of-type {
       display: inline-block;
       padding: 10px 20px;
       background: #00ff88;
@@ -134,7 +135,7 @@
       transition: transform 0.3s;
     }
 
-    .executor-card a.button:hover {
+    .executor-card a.button:hover, .script-content a.button:first-of-type:hover {
       transform: scale(1.05);
     }
 
@@ -263,183 +264,354 @@
     #script-btn:hover {
       transform: scale(1.1);
     }
+
+    .script-cover img {
+      box-shadow: 0 0 15px rgba(0, 255, 136, 0.8);
+    }
+
+    .script-cover p {
+      color: #fff;
+      font-weight: 700;
+      text-shadow: 0 0 5px #fff;
+    }
+
+    .copy-btn {
+      background: #00ff88;
+      color: #0a0a0a;
+      box-shadow: 0 0 10px rgba(0, 255, 136, 0.8);
+    }
+    
   </style>
 </head>
 <body>
   
   <div id="intro-popup">
-    <img src=" https://share.creavite.co/68b64c18da4ebfbf23bd17e8.gif" alt="Giới thiệu"/>
+    <img src="https://share.creavite.co/68b64c18da4ebfbf23bd17e8.gif" alt="Giới thiệu"/>
     <p>Chào mừng bạn đến với ZENOX EXECUTOR! Đây là trang tải xuống các executor tốt nhất cho nhiều nền tảng 🚀.</p>
     <button id="close-popup-btn">Đóng</button>
   </div>
   
-  <h1>ZENOX EXECUTOR</h1>
-  <div class="animated-line"></div>
-
-  <div class="section fade-in-up">
-    <div class="section-title">EXECUTOR ANDROID VNG</div>
-    <div class="card-container">
-      <div class="executor-card fade-in-up">
-        <div class="status-label">Hoạt động</div>
-        <img src="https://executors-lion-hub.netlify.app/codex.png " alt="Executor 2"/>
-        <p class="info-text">CODEX</p>
-        <a class="button" href="https://codex.lol/" target="_blank">Tải về</a>
-      </div>
-      <div class="executor-card fade-in-up">
-        <div class="status-label">Hoạt động</div>
-        <img src="https://executors-lion-hub.netlify.app/arcx.png " alt="Executor 3"/>
-        <p class="info-text">ARCEUS-X-NEO</p>
-        <a class="button" href="https://spdmteam.com/index?os=android" target="_blank">Tải về</a>
-      </div>
-      <div class="executor-card fade-in-up">
-        <div class="status-label">Hoạt động</div>
-        <img src="https://executors-lion-hub.netlify.app/K.svg" alt="Executor 4"/>
-        <p class="info-text">KRNL</p>
-        <a class="button" href="https://krnl.cat/" target="_blank">Tải về</a>
-      </div>
-      <div class="executor-card fade-in-up">
-        <div class="status-label">Hoạt động</div>
-        <img src="https://executors-lion-hub.netlify.app/cry.webp" alt="Executor 4"/>
-        <p class="info-text">CRYPTIC</p>
-        <a class="button" href="https://getcryptic.net/" target="_blank">Tải về</a>
-      </div>
-    </div>
-  </div>
-
-  <div class="section fade-in-up">
-    <div class="section-title">EXECUTOR ANDROID</div>
-    <div class="card-container">
-      <div class="executor-card fade-in-up">
-        <div class="status-label">Hoạt động</div>
-        <img src="https://executors-lion-hub.netlify.app/deltax.png" alt="Executor 1"/>
-        <p class="info-text">DELTA-X</p>
-        <a class="button" href=" https://deltaexploits.gg/delta-executor-android" target="_blank">Tải về</a>
-      </div>
-      <div class="executor-card fade-in-up">
-        <div class="status-label">Hoạt động</div>
-        <img src="https://executors-lion-hub.netlify.app/codex.png " alt="Executor 2"/>
-        <p class="info-text">CODEX</p>
-        <a class="button" href="https://codex.lol/" target="_blank">Tải về</a>
-      </div>
-      <div class="executor-card fade-in-up">
-        <div class="status-label">Hoạt động</div>
-        <img src="https://executors-lion-hub.netlify.app/arcx.png" alt="Executor 3"/>
-        <p class="info-text">ARCEUS-X-NEO</p>
-        <a class="button" href="https://spdmteam.com/index?os=android" target="_blank">Tải về</a>
-      </div>
-      <div class="executor-card fade-in-up ">
-        <div class="status-label">Hoạt động</div>
-        <img src="https://executors-lion-hub.netlify.app/tri.png" alt="Executor 4"/>
-        <p class="info-text">TRIGON</p>
-        <a class="button" href="https://trigonevo.com/android/ " target="_blank">Tải về</a>
-      </div>
-      <div class="executor-card fade-in-up ">
-        <div class="status-label">Hoạt động</div>
-        <img src=" https://cdn.discordapp.com/attachments/1399335670065008791/1410805932652363917/2025082908582972.png?ex=68b25ae9&is=68b10969&hm=298dbae5956e74ef3b4f6acf145a75b2b2005e2a45b782c9e4c3a86cf842b849&" alt="Executor 4"/>
-        <p class="info-text">RONIX</p>
-        <a class="button" href="https://ronixstudios.com/" target="_blank">Tải về</a>
+  <div id="main-content">
+    <h1>ZENOX EXECUTOR</h1>
+    <div class="animated-line"></div>
+    <div class="section fade-in-up">
+      <div class="section-title">EXECUTOR ANDROID VNG</div>
+      <div class="card-container">
+        <div class="executor-card fade-in-up">
+          <div class="status-label">Hoạt động</div>
+          <img src="https://executors-lion-hub.netlify.app/codex.png " alt="Executor 2"/>
+          <p class="info-text">CODEX</p>
+          <a class="button" href="https://codex.lol/" target="_blank">Tải về</a>
+        </div>
+        <div class="executor-card fade-in-up">
+          <div class="status-label">Hoạt động</div>
+          <img src="https://executors-lion-hub.netlify.app/arcx.png " alt="Executor 3"/>
+          <p class="info-text">ARCEUS-X-NEO</p>
+          <a class="button" href="https://spdmteam.com/index?os=android" target="_blank">Tải về</a>
+        </div>
+        <div class="executor-card fade-in-up">
+          <div class="status-label">Hoạt động</div>
+          <img src="https://executors-lion-hub.netlify.app/K.svg" alt="Executor 4"/>
+          <p class="info-text">KRNL</p>
+          <a class="button" href="https://krnl.cat/" target="_blank">Tải về</a>
+        </div>
+        <div class="executor-card fade-in-up">
+          <div class="status-label">Hoạt động</div>
+          <img src="https://executors-lion-hub.netlify.app/cry.webp" alt="Executor 4"/>
+          <p class="info-text">CRYPTIC</p>
+          <a class="button" href="https://getcryptic.net/" target="_blank">Tải về</a>
+        </div>
       </div>
     </div>
-  </div>
-
-  <div class="section fade-in-up ">
-    <div class="section-title">EXECUTOR IOS </div>
-    <div class="card-container">
-      <div class="executor-card fade-in-up ">
-        <div class="status-label">Hoạt động</div>
-        <img src="https://executors-lion-hub.netlify.app/deltax.png" alt="Executor IOS 1"/>
-        <p class="info-text">DELTA-X</p>
-        <a class="button" href="https://deltaexploits.gg/delta-executor-ios" target="_blank">Tải về</a>
-      </div>
-      <div class="executor-card fade-in-up ">
-        <div class="status-label">Hoạt động</div>
-        <img src="https://executors-lion-hub.netlify.app/arcx.png" alt="Executor IOS 2"/>
-        <p class="info-text">ARCUES-X-NEO</p>
-        <a class="button" href="https://spdmteam.com/index?os=android" target="_blank">Tải về</a>
-      </div>
-      <div class="executor-card fade-in-up ">
-        <div class="status-label">Hoạt động</div>
-        <img src="https://executors-lion-hub.netlify.app/codex.png" alt="Executor IOS 3"/>
-        <p class="info-text">CODEX</p>
-        <a class="button" href="https://codex.lol/" target="_blank">Tải về</a>
-      </div>
-      <div class="executor-card fade-in-up ">
-        <div class="status-label">Hoạt động</div>
-        <img src="https://executors-lion-hub.netlify.app/K.svg" alt="Executor IOS 4"/>
-        <p class="info-text">KRNL</p>
-        <a class="button" href="https://krnl.cat/" target="_blank">Tải về</a>
-      </div>
-    </div>
-  </div>
   
-  <div class="section fade-in-up">
-    <div class="section-title">EXECUTOR IOS VNG</div>
-    <div class="card-container">
-      <div class="executor-card fade-in-up ">
-        <div class="status-label">Hoạt động</div>
-        <img src="https://executors-lion-hub.netlify.app/K.svg" alt="Executor IOS 1"/>
-        <p class="info-text">KRNL</p>
-        <a class="button" href="https://krnl.cat/" target="_blank">Tải về</a>
+    <div class="section fade-in-up">
+      <div class="section-title">EXECUTOR ANDROID</div>
+      <div class="card-container">
+        <div class="executor-card fade-in-up">
+          <div class="status-label">Hoạt động</div>
+          <img src="https://executors-lion-hub.netlify.app/deltax.png" alt="Executor 1"/>
+          <p class="info-text">DELTA-X</p>
+          <a class="button" href="https://deltaexploits.gg/delta-executor-android" target="_blank">Tải về</a>
+        </div>
+        <div class="executor-card fade-in-up">
+          <div class="status-label">Hoạt động</div>
+          <img src="https://executors-lion-hub.netlify.app/codex.png " alt="Executor 2"/>
+          <p class="info-text">CODEX</p>
+          <a class="button" href="https://codex.lol/" target="_blank">Tải về</a>
+        </div>
+        <div class="executor-card fade-in-up">
+          <div class="status-label">Hoạt động</div>
+          <img src="https://executors-lion-hub.netlify.app/arcx.png" alt="Executor 3"/>
+          <p class="info-text">ARCEUS-X-NEO</p>
+          <a class="button" href="https://spdmteam.com/index?os=android" target="_blank">Tải về</a>
+        </div>
+        <div class="executor-card fade-in-up ">
+          <div class="status-label">Hoạt động</div>
+          <img src="https://executors-lion-hub.netlify.app/tri.png" alt="Executor 4"/>
+          <p class="info-text">TRIGON</p>
+          <a class="button" href="https://trigonevo.com/android/ " target="_blank">Tải về</a>
+        </div>
+        <div class="executor-card fade-in-up ">
+          <div class="status-label">Hoạt động</div>
+          <img src="https://cdn.discordapp.com/attachments/1399335670065008791/1410805932652363917/2025082908582972.png?ex=68b25ae9&is=68b10969&hm=298dbae5956e74ef3b4f6acf145a75b2b2005e2a45b782c9e4c3a86cf842b849&" alt="Executor 4"/>
+          <p class="info-text">RONIX</p>
+          <a class="button" href="https://ronixstudios.com/" target="_blank">Tải về</a>
+        </div>
       </div>
     </div>
-  </div>
-
-  <div class="section fade-in-up">
-    <div class="section-title">EXECUTOR PC</div>
-    <div class="card-container">
-      <div class="executor-card fade-in-up ">
-        <div class="status-label">Hoạt động</div>
-        <img src="https://executors-lion-hub.netlify.app/codex.png" alt="Executor PC 1"/>
-        <p class="info-text">CODEX</p>
-        <a class="button" href="https://codex.lol/" target="_blank">Tải về</a>
-      </div>
-      <div class="executor-card fade-in-up ">
-        <div class="status-label">Hoạt động</div>
-        <img src="https://executors-lion-hub.netlify.app/Sw.webp" alt="Executor PC 2"/>
-        <p class="info-text">TAYLOR-SWIFT</p>
-        <a class="button" href="https://getswift.gg/" target="_blank">Tải về</a>
-      </div>
-      <div class="executor-card fade-in-up ">
-        <div class="status-label">Hoạt động</div>
-        <img src="https://images.crunchbase.com/image/upload/c_pad,f_auto,q_auto:eco,dpr_1/ad789f5f19f8483da06d1f6a0a8ab9bc" alt="Executor PC 3"/>
-        <p class="info-text">XENO</p>
-        <a class="button" href="https://www.xeno.onl/download" target="_blank">Tải về</a>
-      </div>
-      <div class="executor-card fade-in-up ">
-        <div class="status-label">Hoạt động</div>
-        <img src="https://executors-lion-hub.netlify.app/arcx.png" alt="Executor PC 4"/>
-        <p class="info-text">ARCEUS-X-NEO</p>
-        <a class="button" href="https://spdmteam.com/index?os=android" target="_blank">Tải về</a>
-      </div>
-      <div class="executor-card fade-in-up ">
-        <div class="status-label">Hoạt động</div>
-        <img src="https://cdn.discordapp.com/attachments/1312651002264158318/1412654119130370110/2025082908582972.png?ex=68b9142b&is=68b7c2ab&hm=8dee219fedbfba7bb76bf53f135b52a287bd854cac4966d32c0f84ebf5b10c55&" alt="Executor PC 4"/>
-        <p class="info-text">RONIX</p>
-        <a class="button" href="https://ronixstudios.com/ " target="_blank">Tải về</a>
-      </div>
-      <div class="executor-card fade-in-up ">
-        <div class="status-label">Hoạt động</div>
-        <img src="https://cdn.discordapp.com/attachments/1312651002264158318/1412654118820122747/image.png?ex=68b9142b&is=68b7c2ab&hm=e808a78f0603a25fe77d46c97408942650a03c4ca834943c7f8ed820c85f1d16&" alt="Executor PC 5"/>
-        <p class="info-text">VOLCANO</p>
-        <a class="button" href=" https://volcano.wtf/" target="_blank">Tải về</a>
-      </div>
-      <div class="executor-card fade-in-up ">
-        <div class="status-label">Hoạt động</div>
-        <img src=" https://cdn.discordapp.com/attachments/1330017042459394138/1412737825102888982/Hydrogen-Executor-Logo-img.webp?ex=68ba0ae0&is=68b8b960&hm=5d64f7e493968b50b94100f29dfc16ee8eaa0e829df4aa43955c708e08d8e65b&" alt="Executor PC "/>
-        <p class="info-text">HYDROGEN</p>
-        <a class="button" href="https://hydrogen.lat/" target="_blank">Tải về</a>
+  
+    <div class="section fade-in-up ">
+      <div class="section-title">EXECUTOR IOS </div>
+      <div class="card-container">
+        <div class="executor-card fade-in-up ">
+          <div class="status-label">Hoạt động</div>
+          <img src="https://executors-lion-hub.netlify.app/deltax.png" alt="Executor IOS 1"/>
+          <p class="info-text">DELTA-X</p>
+          <a class="button" href="https://deltaexploits.gg/delta-executor-ios" target="_blank">Tải về</a>
+        </div>
+        <div class="executor-card fade-in-up ">
+          <div class="status-label">Hoạt động</div>
+          <img src="https://executors-lion-hub.netlify.app/arcx.png" alt="Executor IOS 2"/>
+          <p class="info-text">ARCUES-X-NEO</p>
+          <a class="button" href="https://spdmteam.com/index?os=android" target="_blank">Tải về</a>
+        </div>
+        <div class="executor-card fade-in-up ">
+          <div class="status-label">Hoạt động</div>
+          <img src="https://executors-lion-hub.netlify.app/codex.png" alt="Executor IOS 3"/>
+          <p class="info-text">CODEX</p>
+          <a class="button" href="https://codex.lol/" target="_blank">Tải về</a>
+        </div>
+        <div class="executor-card fade-in-up ">
+          <div class="status-label">Hoạt động</div>
+          <img src="https://executors-lion-hub.netlify.app/K.svg" alt="Executor IOS 4"/>
+          <p class="info-text">KRNL</p>
+          <a class="button" href="https://krnl.cat/" target="_blank">Tải về</a>
+        </div>
       </div>
     </div>
+    
+    <div class="section fade-in-up">
+      <div class="section-title">EXECUTOR IOS VNG</div>
+      <div class="card-container">
+        <div class="executor-card fade-in-up ">
+          <div class="status-label">Hoạt động</div>
+          <img src="https://executors-lion-hub.netlify.app/K.svg" alt="Executor IOS 1"/>
+          <p class="info-text">KRNL</p>
+          <a class="button" href="https://krnl.cat/" target="_blank">Tải về</a>
+        </div>
+      </div>
+    </div>
+  
+    <div class="section fade-in-up">
+      <div class="section-title">EXECUTOR PC</div>
+      <div class="card-container">
+        <div class="executor-card fade-in-up ">
+          <div class="status-label">Hoạt động</div>
+          <img src="https://executors-lion-hub.netlify.app/codex.png" alt="Executor PC 1"/>
+          <p class="info-text">CODEX</p>
+          <a class="button" href="https://codex.lol/" target="_blank">Tải về</a>
+        </div>
+        <div class="executor-card fade-in-up ">
+          <div class="status-label">Hoạt động</div>
+          <img src="https://executors-lion-hub.netlify.app/Sw.webp" alt="Executor PC 2"/>
+          <p class="info-text">TAYLOR-SWIFT</p>
+          <a class="button" href="https://getswift.gg/" target="_blank">Tải về</a>
+        </div>
+        <div class="executor-card fade-in-up ">
+          <div class="status-label">Hoạt động</div>
+          <img src="https://images.crunchbase.com/image/upload/c_pad,f_auto,q_auto:eco,dpr_1/ad789f5f19f8483da06d1f6a0a8ab9bc" alt="Executor PC 3"/>
+          <p class="info-text">XENO</p>
+          <a class="button" href="https://www.xeno.onl/download" target="_blank">Tải về</a>
+        </div>
+        <div class="executor-card fade-in-up ">
+          <div class="status-label">Hoạt động</div>
+          <img src="https://executors-lion-hub.netlify.app/arcx.png" alt="Executor PC 4"/>
+          <p class="info-text">ARCEUS-X-NEO</p>
+          <a class="button" href="https://spdmteam.com/index?os=android" target="_blank">Tải về</a>
+        </div>
+        <div class="executor-card fade-in-up ">
+          <div class="status-label">Hoạt động</div>
+          <img src="https://cdn.discordapp.com/attachments/1312651002264158318/1412654119130370110/2025082908582972.png?ex=68b9142b&is=68b7c2ab&hm=8dee219fedbfba7bb76bf53f135b52a287bd854cac4966d32c0f84ebf5b10c55&" alt="Executor PC 4"/>
+          <p class="info-text">RONIX</p>
+          <a class="button" href="https://ronixstudios.com/ " target="_blank">Tải về</a>
+        </div>
+        <div class="executor-card fade-in-up ">
+          <div class="status-label">Hoạt động</div>
+          <img src="https://cdn.discordapp.com/attachments/1312651002264158318/1412654118820122747/image.png?ex=68b9142b&is=68b7c2ab&hm=e808a78f0603a25fe77d46c97408942650a03c4ca834943c7f8ed820c85f1d16&" alt="Executor PC 5"/>
+          <p class="info-text">VOLCANO</p>
+          <a class="button" href=" https://volcano.wtf/" target="_blank">Tải về</a>
+        </div>
+        <div class="executor-card fade-in-up ">
+          <div class="status-label">Hoạt động</div>
+          <img src="https://cdn.discordapp.com/attachments/1330017042459394138/1412737825102888982/Hydrogen-Executor-Logo-img.webp?ex=68ba0ae0&is=68b8b960&hm=5d64f7e493968b50b94100f29dfc16ee8eaa0e829df4aa43955c708e08d8e65b&" alt="Executor PC "/>
+          <p class="info-text">HYDROGEN</p>
+          <a class="button" href="https://hydrogen.lat/" target="_blank">Tải về</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-text">© ZENOX COMMUNITY : https://discord.gg/DdGAmF28h2</div>
   </div>
-  <div class="footer-text">© ZENOX COMMUNITY : https://discord.gg/DdGAmF28h2</div>
 
-  <a href="zenox-script.html" id="script-btn">...</a>
+  <div id="script-content" style="display: none;">
+    <h1>ZENOX SCRIPT</h1>
+    <a href="javascript:void(0)" class="button" id="return-home-btn" style="margin-bottom: 20px; padding: 10px 30px; font-size: 1.2em;">Trang Chủ</a>
+    <div class="animated-line"></div>
+    <div class="section fade-in-up">
+      <div class="section-title">SCRIPT EXECUTOR </div>
+      <div class="card-container">
+        <div class="executor-card fade-in-up ">
+          <p class="info-text">Script Shinichi Hub</p>
+          <div class="script-toggle">
+            <div class="script-cover">
+              <img src="https://scriptdee.com/wp-content/uploads/2025/06/Shinichi-Hub-BF.png" alt="Click để hiện script" style="width: 100%; height: 180px; border-radius: 12px; object-fit: cover; cursor: pointer; box-shadow: 0 0 15px rgba(0, 255, 136, 0.8);">
+              <p style="margin-top: 10px; color: #fff; font-weight: 700; text-shadow: 0 0 5px #fff;">Click để hiển thị script</p>
+            </div>
+            <div class="script-content-block" style="display: none;">
+              <textarea readonly style="width:100%; height:100px; border-radius: 8px; padding: 10px; resize:none; background:#222; color:#0f0; font-family: monospace;">
+repeat wait() until game:IsLoaded()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/shinichi-dz/phucshinsayhi/refs/heads/main/ShinichiHub.lua"))()
+              </textarea>
+              <a class="button copy-btn" href="javascript:void(0)">Copy Script</a>
+              <a class="button" href="javascript:void(0)" onclick="toggleScript(this)">Ẩn lại</a>
+            </div>
+          </div>
+        </div>
+        <div class="executor-card fade-in-up ">
+          <p class="info-text">Script Nexon Hub</p>
+          <div class="script-toggle">
+            <div class="script-cover">
+              <img src="https://i.ytimg.com/vi/ATHtjvusAoE/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLAARxgIpbP3hQIM8tgmpNJ7haBi1Q " alt="Click để hiện script" style="width: 100%; height: 180px; border-radius: 12px; object-fit: cover; cursor: pointer; box-shadow: 0 0 15px rgba(0, 255, 136, 0.8);">
+              <p style="margin-top: 10px; color: #fff; font-weight: 700; text-shadow: 0 0 5px #fff;">Click để hiển thị script</p>
+            </div>
+            <div class="script-content-block" style="display: none;">
+              <textarea readonly style="width:100%; height:100px; border-radius: 8px; padding: 10px; resize:none; background:#222; color:#0f0; font-family: monospace;">
+repeat wait() until game:IsLoaded() and game.Players.LocalPlayer
+getgenv().Team = "Pirates" -- Marines
+loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/bf92d246f65d7d0e0d684a81d4e59fa3.lua"))()
+              </textarea>
+              <a class="button copy-btn" href="javascript:void(0)">Copy Script</a>
+              <a class="button" href="javascript:void(0)" onclick="toggleScript(this)">Ẩn lại</a>
+            </div>
+          </div>
+        </div>
+        <div class="executor-card fade-in-up ">
+          <p class="info-text">Script W-azure</p>
+          <div class="script-toggle">
+            <div class="script-cover">
+              <img src="https://i.ytimg.com/vi/z85RWfnLr-U/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLCLrjCMhYPZ9FeodhBI8Nu5Rg32oA" alt="Click để hiện script" style="width: 100%; height: 180px; border-radius: 12px; object-fit: cover; cursor: pointer; box-shadow: 0 0 15px rgba(0, 255, 136, 0.8);">
+              <p style="margin-top: 10px; color: #fff; font-weight: 700; text-shadow: 0 0 5px #fff;">Click để hiển thị script</p>
+            </div>
+            <div class="script-content-block" style="display: none;">
+              <textarea readonly style="width:100%; height:100px; border-radius: 8px; padding: 10px; resize:none; background:#222; color:#0f0; font-family: monospace;">
+loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/3b2169cf53bc6104dabe8e19562e5cc2.lua"))()
+              </textarea>
+              <a class="button copy-btn" href="javascript:void(0)">Copy Script</a>
+              <a class="button" href="javascript:void(0)" onclick="toggleScript(this)">Ẩn lại</a>
+            </div>
+          </div>
+        </div>      
+        <div class="executor-card fade-in-up ">
+          <p class="info-text">Script Xero Hub</p>
+          <div class="script-toggle">
+            <div class="script-cover">
+              <img src="https://i.ytimg.com/vi/3VmWiDinsTI/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLAtGLudPx0GO2pgXfgyueJ2OpuStA" alt="Click để hiện script" style="width: 100%; height: 180px; border-radius: 12px; object-fit: cover; cursor: pointer; box-shadow: 0 0 15px rgba(0, 255, 136, 0.8);">
+              <p style="margin-top: 10px; color: #fff; font-weight: 700; text-shadow: 0 0 5px #fff;">Click để hiển thị script</p>
+            </div>
+            <div class="script-content-block" style="display: none;">
+              <textarea readonly style="width:100%; height:100px; border-radius: 8px; padding: 10px; resize:none; background:#222; color:#0f0; font-family: monospace;">
+getgenv().Team = "Marines"
+getgenv().Hide_Menu = false
+getgenv().Auto_Execute = false
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Xero2409/XeroHub/refs/heads/main/main.lua"))()
+              </textarea>
+              <a class="button copy-btn" href="javascript:void(0)">Copy Script</a>
+              <a class="button" href="javascript:void(0)" onclick="toggleScript(this)">Ẩn lại</a>
+            </div>
+          </div>
+        </div>
+        <div class="executor-card fade-in-up ">
+          <p class="info-text">Script Redz Hub</p>
+          <div class="script-toggle">
+            <div class="script-cover">
+              <img src="https://i.ytimg.com/vi/SMrG0FW1CN8/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLDkJCx9aR_t1wr0pybRadFyeJvogQ" alt="Click để hiện script" style="width: 100%; height: 180px; border-radius: 12px; object-fit: cover; cursor: pointer; box-shadow: 0 0 15px rgba(0, 255, 136, 0.8);">
+              <p style="margin-top: 10px; color: #fff; font-weight: 700; text-shadow: 0 0 5px #fff;">Click để hiển thị script</p>
+            </div>
+            <div class="script-content-block" style="display: none;">
+              <textarea readonly style="width:100%; height:100px; border-radius: 8px; padding: 10px; resize:none; background:#222; color:#0f0; font-family: monospace;">
+local Settings = {
+    JoinTeam = "Pirates"; -- Pirates / Marines
+    Translator = true;   -- true / false
+}
+loadstring(game:HttpGet("https://raw.githubusercontent.com/tlredz/Scripts/refs/heads/main/main.luau"))(Settings)
+              </textarea>
+              <a class="button copy-btn" href="javascript:void(0)">Copy Script</a>
+              <a class="button" href="javascript:void(0)" onclick="toggleScript(this)">Ẩn lại</a>
+            </div>
+          </div>
+        </div> 
+        <div class="executor-card fade-in-up ">
+          <p class="info-text">Script Alchemy Hub</p>
+          <div class="script-toggle">
+            <div class="script-cover">
+              <img src="https://camo.githubusercontent.com/172db0f4335753335a5a3148a8577b54f4898133731babc7166ecc08f85384a5/68747470733a2f2f692e7974696d672e636f6d2f76692f476e61426e537a654f35382f6d617872657364656661756c742e6a7067" alt="Click để hiện script" style="width: 100%; height: 180px; border-radius: 12px; object-fit: cover; cursor: pointer; box-shadow: 0 0 15px rgba(0, 255, 136, 0.8);">
+              <p style="margin-top: 10px; color: #fff; font-weight: 700; text-shadow: 0 0 5px #fff;">Click để hiển thị script</p>
+            </div>
+            <div class="script-content-block" style="display: none;">
+              <textarea readonly style="width:100%; height:100px; border-radius: 8px; padding: 10px; resize:none; background:#222; color:#0f0; font-family: monospace;">
+loadstring(game:HttpGet("https://scripts.alchemyhub.xyz"))()
+              </textarea>
+              <a class="button copy-btn" href="javascript:void(0)">Copy Script</a>
+              <a class="button" href="javascript:void(0)" onclick="toggleScript(this)">Ẩn lại</a>
+            </div>
+          </div>
+        </div>
+        <div class="executor-card fade-in-up ">
+          <p class="info-text">Script Fly Gui V3</p>
+          <div class="script-toggle">
+            <div class="script-cover">
+              <img src="https://i.ytimg.com/vi/q_v2-G5-d-k/maxresdefault.jpg" alt="Click để hiện script" style="width: 100%; height: 180px; border-radius: 12px; object-fit: cover; cursor: pointer; box-shadow: 0 0 15px rgba(0, 255, 136, 0.8);">
+              <p style="margin-top: 10px; color: #fff; font-weight: 700; text-shadow: 0 0 5px #fff;">Click để hiển thị script</p>
+            </div>
+            <div class="script-content-block" style="display: none;">
+              <textarea readonly style="width:100%; height:100px; border-radius: 8px; padding: 10px; resize:none; background:#222; color:#0f0; font-family: monospace;">
+loadstring(game:HttpGet("https://raw.githubusercontent.com/XNEOFF/FlyGuiV3/main/FlyGuiV3.txt"))()
+              </textarea>
+              <a class="button copy-btn" href="javascript:void(0)">Copy Script</a>
+              <a class="button" href="javascript:void(0)" onclick="toggleScript(this)">Ẩn lại</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-text">© ZENOX COMMUNITY : https://discord.gg/DdGAmF28h2</div>
+  </div>
+
+  <a href="javascript:void(0)" id="script-btn">...</a>
 
   <script>
-    // Scroll reveal effect - chỉ cần chèn một lần
-    (function() {
-      const revealElements = document.querySelectorAll('.fade-in-up');
+    // Show/hide content sections
+    document.getElementById("script-btn").addEventListener("click", () => {
+      document.getElementById("main-content").style.display = "none";
+      document.getElementById("script-content").style.display = "flex";
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
 
+    document.getElementById("return-home-btn").addEventListener("click", () => {
+      document.getElementById("main-content").style.display = "flex";
+      document.getElementById("script-content").style.display = "none";
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Pop-up and Scroll Reveal
+    document.addEventListener("DOMContentLoaded", () => {
+      const popup = document.getElementById("intro-popup");
+      const closeBtn = document.getElementById("close-popup-btn");
+      popup.style.display = "block";
+      closeBtn.addEventListener("click", () => {
+        popup.style.display = "none";
+      });
+
+      const revealElements = document.querySelectorAll('.fade-in-up');
       function revealOnScroll() {
         const windowHeight = window.innerHeight;
         revealElements.forEach(el => {
@@ -455,19 +627,35 @@
         revealElements.forEach(el => el.classList.add('fade-in-up'));
         revealOnScroll();
       });
-    })();
-  </script>
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const popup = document.getElementById("intro-popup");
-      const closeBtn = document.getElementById("close-popup-btn");
+    });
 
-      popup.style.display = "block";
+    // Script card functionality
+    document.querySelectorAll('.script-cover').forEach(cover => {
+      cover.addEventListener('click', () => {
+        cover.style.display = 'none';
+        cover.nextElementSibling.style.display = 'flex';
+      });
+    });
 
-      closeBtn.addEventListener("click", () => {
-        popup.style.display = "none";
+    function toggleScript(btn) {
+      const content = btn.parentElement;
+      const cover = content.previousElementSibling;
+      content.style.display = 'none';
+      cover.style.display = 'block';
+    }
+
+    document.querySelectorAll('.copy-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const textarea = btn.previousElementSibling;
+        textarea.select();
+        textarea.setSelectionRange(0, 99999);
+        navigator.clipboard.writeText(textarea.value).then(() => {
+          const original = btn.textContent;
+          btn.textContent = "Đã Sao Chép!";
+          setTimeout(() => btn.textContent = original, 1500);
+        }).catch(() => alert("Copy thất bại! Vui lòng copy thủ công."));
       });
     });
   </script>
 </body>
-          </html>
+                </html>
