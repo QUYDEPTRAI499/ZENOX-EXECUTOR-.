@@ -252,6 +252,88 @@
       color: #0a0a0a;
       box-shadow: 0 0 10px rgba(0, 255, 136, 0.8);
     }
+    
+    .draggable-menu {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 60px;
+      height: 60px;
+      background-color: #333;
+      border-radius: 50%;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+      cursor: grab;
+      z-index: 1000;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transition: width 0.3s, height 0.3s, border-radius 0.3s;
+    }
+
+    .draggable-menu.open {
+      width: 200px;
+      height: auto;
+      min-height: 60px;
+      border-radius: 10px;
+      padding: 10px;
+      cursor: auto;
+    }
+
+    .drag-handle {
+      width: 30px;
+      height: 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+      position: relative;
+      cursor: grab;
+    }
+
+    .draggable-menu.open .drag-handle {
+      cursor: move;
+      margin-bottom: 10px;
+    }
+
+    .line {
+      width: 100%;
+      height: 3px;
+      background-color: #fff;
+      border-radius: 2px;
+    }
+
+    .music-controls {
+      display: none;
+      flex-direction: row;
+      justify-content: space-around;
+      width: 100%;
+      margin-top: 10px;
+    }
+
+    .draggable-menu.open .music-controls {
+      display: flex;
+    }
+
+    .control-btn {
+      background: none;
+      border: 1px solid #fff;
+      color: #fff;
+      font-size: 1.2em;
+      padding: 8px 12px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+
+    .control-btn:hover {
+      background-color: #555;
+    }
+
+    .draggable-menu.dragging {
+      opacity: 0.8;
+      cursor: grabbing;
+    }
   </style>
 </head>
 <body>
@@ -521,7 +603,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/tlredz/Scripts/refs/h
         <p class="info-text">Script Alchemy Hub</p>
         <div class="script-toggle">
           <div class="script-cover">
-            <img src="https://camo.githubusercontent.com/172db0f4335753335a5a3148a8577b54f4898133731babc7166ecc08f85384a5/68747470733a2f2f692e7974696d672e636f6d2f76692f476e61426e537a654f35382f6d617872657364656661756c742e6a7067" alt="Click để hiện script" style="width: 100%; height: 180px; border-radius: 12px; object-fit: cover; cursor: pointer; box-shadow: 0 0 15px rgba(0, 255, 136, 0.8);">
+            <img src="https://camo.githubusercontent.com/172db0f4335753335a5a3148a8577b54f4898133731babc7166ecc08f85384a4/68747470733a2f2f692e7974696d672e636f6d2f76692f476e61426e537a654f35382f6d617872657364656661756c742e6a7067" alt="Click để hiện script" style="width: 100%; height: 180px; border-radius: 12px; object-fit: cover; cursor: pointer; box-shadow: 0 0 15px rgba(0, 255, 136, 0.8);">
             <p style="margin-top: 10px; color: #fff; font-weight: 700; text-shadow: 0 0 5px #fff;">Click để hiển thị script</p>
           </div>
           <div class="script-content" style="display: none;">
@@ -552,6 +634,19 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/XNEOFF/FlyGuiV3/main/
     </div>
   </div>
   <div class="footer-text">© ZENOX COMMUNITY : https://discord.gg/DdGAmF28h2</div>
+
+  <div id="draggable-menu" class="draggable-menu">
+      <div class="drag-handle">
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+      </div>
+      <div class="music-controls">
+          <button id="play-pause-btn" class="control-btn">▶</button>
+          <button id="stop-btn" class="control-btn">■</button>
+          <button id="next-btn" class="control-btn">»</button>
+      </div>
+  </div>
 
   <script>
     // Copy Script
@@ -620,5 +715,78 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/XNEOFF/FlyGuiV3/main/
       });
     });
   </script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const draggableMenu = document.getElementById('draggable-menu');
+        const dragHandle = draggableMenu.querySelector('.drag-handle');
+        const playPauseBtn = document.getElementById('play-pause-btn');
+
+        let isDragging = false;
+        let offsetX, offsetY;
+        let isExpanded = false;
+
+        // Toggle menu functionality
+        dragHandle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            if (!isDragging) {
+                isExpanded = !isExpanded;
+                draggableMenu.classList.toggle('open', isExpanded);
+            }
+        });
+
+        // Dragging functionality
+        dragHandle.addEventListener('mousedown', (e) => {
+            isDragging = true;
+            draggableMenu.classList.add('dragging');
+            offsetX = e.clientX - draggableMenu.getBoundingClientRect().left;
+            offsetY = e.clientY - draggableMenu.getBoundingClientRect().top;
+        });
+
+        document.addEventListener('mousemove', (e) => {
+            if (isDragging) {
+                let x = e.clientX - offsetX;
+                let y = e.clientY - offsetY;
+
+                // Prevent moving outside the viewport
+                const maxWidth = window.innerWidth - draggableMenu.offsetWidth;
+                const maxHeight = window.innerHeight - draggableMenu.offsetHeight;
+
+                x = Math.max(0, Math.min(x, maxWidth));
+                y = Math.max(0, Math.min(y, maxHeight));
+
+                draggableMenu.style.left = `${x}px`;
+                draggableMenu.style.top = `${y}px`;
+                draggableMenu.style.right = 'auto';
+                draggableMenu.style.bottom = 'auto';
+            }
+        });
+
+        document.addEventListener('mouseup', () => {
+            isDragging = false;
+            draggableMenu.classList.remove('dragging');
+        });
+
+        // Music control buttons (example)
+        playPauseBtn.addEventListener('click', () => {
+            if (playPauseBtn.textContent === '▶') {
+                playPauseBtn.textContent = '⏸';
+                alert('Đang phát nhạc...');
+            } else {
+                playPauseBtn.textContent = '▶';
+                alert('Đã tạm dừng...');
+            }
+        });
+
+        document.getElementById('stop-btn').addEventListener('click', () => {
+            playPauseBtn.textContent = '▶';
+            alert('Đã dừng nhạc.');
+        });
+
+        document.getElementById('next-btn').addEventListener('click', () => {
+            alert('Bài tiếp theo...');
+        });
+    });
+  </script>
 </body>
-</html>
+          </html>
