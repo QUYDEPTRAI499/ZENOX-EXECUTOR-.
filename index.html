@@ -83,7 +83,7 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 40px; /* Tăng khoảng cách */
+      gap: 40px;
     }
 
     .executor-card {
@@ -92,7 +92,7 @@
       border-radius: 16px;
       box-shadow: 0 0 20px rgba(0, 255, 136, 0.5);
       text-align: center;
-      width: 280px; /* Giảm kích thước khung */
+      width: 280px;
       position: relative;
       border: 1px solid rgba(0, 255, 136, 0.2);
       backdrop-filter: blur(10px);
@@ -116,12 +116,12 @@
     .executor-card img {
       width: 100%;
       height: 190px;
-      object-fit: cover; /* Chuyển sang cover để ảnh vừa khung */
+      object-fit: cover;
       border-radius: 12px;
       margin-bottom: 15px;
     }
 
-    .executor-card a.button {
+    .executor-card a.button, .music-controls button {
       display: inline-block;
       padding: 10px 20px;
       background: #00ff88;
@@ -132,9 +132,11 @@
       font-size: 1em;
       box-shadow: 0 0 10px rgba(0, 255, 136, 0.8);
       transition: transform 0.3s;
+      border: none;
+      cursor: pointer;
     }
 
-    .executor-card a.button:hover {
+    .executor-card a.button:hover, .music-controls button:hover {
       transform: scale(1.05);
     }
 
@@ -174,58 +176,6 @@
       }
     }
 
-    #intro-popup {
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background: rgba(0, 0, 0, 0.8);
-      border-radius: 15px;
-      box-shadow: 0 0 25px rgba(0, 255, 136, 0.8);
-      padding: 30px 40px;
-      max-width: 400px;
-      width: 90%;
-      z-index: 9999;
-      color: white;
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      animation: popupFadeIn 0.5s ease forwards;
-    }
-
-    #intro-popup img {
-      width: 300px;
-      height: auto;
-      margin-bottom: 20px;
-      border-radius: 0;
-      object-fit: contain;
-      box-shadow: none;
-      background: transparent;
-    }
-
-    #intro-popup button {
-      margin-top: 15px;
-      padding: 10px 20px;
-      background: #00ff88;
-      border: none;
-      border-radius: 8px;
-      font-weight: bold;
-      cursor: pointer;
-      color: #0a0a0a;
-      box-shadow: 0 0 10px rgba(0, 255, 136, 0.8);
-      transition: background 0.3s;
-    }
-
-    #intro-popup button:hover {
-      background: #00c4a9;
-    }
-
-    @keyframes popupFadeIn {
-      from { opacity: 0; transform: translate(-50%, -60%); }
-      to { opacity: 1; transform: translate(-50%, -50%); }
-    }
-
     .fade-in-up {
       opacity: 0;
       transform: translateY(30px);
@@ -252,17 +202,123 @@
       color: #0a0a0a;
       box-shadow: 0 0 10px rgba(0, 255, 136, 0.8);
     }
+    
+    /* NEW STYLES FOR POPUP MENU */
+    #main-popup-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(45deg, #00ff88, #0080ff);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 30px;
+      color: #fff;
+      cursor: pointer;
+      box-shadow: 0 0 20px rgba(0, 255, 136, 0.7);
+      transition: transform 0.3s;
+      z-index: 1000;
+      border: none;
+    }
+    
+    #main-popup-btn:hover {
+      transform: scale(1.1);
+    }
+    
+    #main-popup {
+      position: fixed;
+      bottom: 90px;
+      right: 20px;
+      width: 350px;
+      max-width: 90%;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      backdrop-filter: blur(15px);
+      box-shadow: 0 0 30px rgba(0, 255, 136, 0.5);
+      border: 1px solid rgba(0, 255, 136, 0.3);
+      padding: 20px;
+      display: none;
+      flex-direction: column;
+      z-index: 999;
+      animation: fadeIn 0.3s ease-out forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .popup-tabs {
+      display: flex;
+      margin-bottom: 20px;
+    }
+    
+    .popup-tabs button {
+      flex: 1;
+      padding: 10px;
+      border: none;
+      background: rgba(0, 0, 0, 0.3);
+      color: #fff;
+      font-size: 1.2em;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    
+    .popup-tabs button:first-child { border-top-left-radius: 10px; border-bottom-left-radius: 10px; }
+    .popup-tabs button:last-child { border-top-right-radius: 10px; border-bottom-right-radius: 10px; }
+    
+    .popup-tabs button.active {
+      background: #00ff88;
+      color: #0a0a0a;
+    }
+    
+    .popup-content > div {
+      display: none;
+    }
+    
+    .popup-content > div.active {
+      display: block;
+    }
+    
+    #music-player {
+      text-align: center;
+    }
+    
+    #music-player h3 {
+      font-size: 1.5em;
+      margin-bottom: 10px;
+      text-shadow: 0 0 5px #fff;
+    }
+    
+    .music-controls {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 15px;
+      margin-top: 15px;
+    }
+    
+    .music-controls button {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: #00ff88;
+      color: #0a0a0a;
+      font-size: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
   </style>
 </head>
 <body>
+  
   <h1>ZENOX EXECUTOR</h1>
   <div class="animated-line"></div>
-
-  <div id="intro-popup" style="display:none;">
-    <img src=" https://share.creavite.co/68b64c18da4ebfbf23bd17e8.gif" alt="Giới thiệu"/>
-    <p>Chào mừng bạn đến với ZENOX EXECUTOR! Đây là trang tải xuống các executor tốt nhất cho nhiều nền tảng 🚀.</p>
-    <button id="close-popup-btn">Đóng</button>
-  </div>
 
   <div class="section fade-in-up">
     <div class="section-title">
@@ -537,7 +593,7 @@ loadstring(game:HttpGet("https://scripts.alchemyhub.xyz"))()
         <p class="info-text">Script Fly Gui V3</p>
         <div class="script-toggle">
           <div class="script-cover">
-            <img src="https://share.google/images/x0q3FoFgiKYB8dK1s" alt="Click để hiện script" style="width: 100%; height: 180px; border-radius: 12px; object-fit: cover; cursor: pointer; box-shadow: 0 0 15px rgba(0, 255, 136, 0.8);">
+            <img src="https://i.ytimg.com/vi/q_v2-G5-d-k/maxresdefault.jpg" alt="Click để hiện script" style="width: 100%; height: 180px; border-radius: 12px; object-fit: cover; cursor: pointer; box-shadow: 0 0 15px rgba(0, 255, 136, 0.8);">
             <p style="margin-top: 10px; color: #fff; font-weight: 700; text-shadow: 0 0 5px #fff;">Click để hiển thị script</p>
           </div>
           <div class="script-content" style="display: none;">
@@ -552,6 +608,69 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/XNEOFF/FlyGuiV3/main/
     </div>
   </div>
   <div class="footer-text">© ZENOX COMMUNITY : https://discord.gg/DdGAmF28h2</div>
+  
+  <button id="main-popup-btn">...</button>
+  
+  <div id="main-popup">
+    <div class="popup-tabs">
+      <button id="music-tab" class="active">Nhạc</button>
+      <button id="script-tab">Script</button>
+    </div>
+    
+    <div class="popup-content">
+      <div id="music-content" class="active">
+        <h3>Âm nhạc nền</h3>
+        <p id="current-song-title" style="margin-bottom: 10px; font-weight: bold;"></p>
+        <audio id="audio-player" autoplay loop></audio>
+        <div class="music-controls">
+          <button id="prev-btn">⏮</button>
+          <button id="play-pause-btn">▶</button>
+          <button id="next-btn">⏭</button>
+        </div>
+      </div>
+      
+      <div id="script-content-popup">
+        <p style="font-size: 1.2em; font-weight: bold; margin-bottom: 10px;">Vui lòng sao chép script dưới đây</p>
+        <div class="card-container" style="gap: 20px;">
+          <div class="executor-card" style="width: 100%;">
+            <p class="info-text">Script Shinichi Hub</p>
+            <div class="script-toggle">
+              <div class="script-cover">
+                <img src="https://scriptdee.com/wp-content/uploads/2025/06/Shinichi-Hub-BF.png" alt="Click để hiện script" style="width: 100%; height: 100px; border-radius: 8px; object-fit: cover; cursor: pointer;">
+                <p style="margin-top: 10px; color: #fff; font-weight: 700; text-shadow: 0 0 5px #fff; font-size: 0.9em;">Click để hiển thị script</p>
+              </div>
+              <div class="script-content" style="display: none;">
+                <textarea readonly style="width:100%; height:80px; border-radius: 8px; padding: 10px; resize:none; background:#222; color:#0f0; font-family: monospace; font-size: 0.8em;">
+repeat wait() until game:IsLoaded()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/shinichi-dz/phucshinsayhi/refs/heads/main/ShinichiHub.lua"))()
+                </textarea>
+                <a class="button copy-btn" href="javascript:void(0)">Copy Script</a>
+                <a class="button" href="javascript:void(0)" onclick="toggleScript(this)">Ẩn lại</a>
+              </div>
+            </div>
+          </div>
+          <div class="executor-card" style="width: 100%;">
+            <p class="info-text">Script Nexon Hub</p>
+            <div class="script-toggle">
+              <div class="script-cover">
+                <img src="https://i.ytimg.com/vi/ATHtjvusAoE/hq720.jpg" alt="Click để hiện script" style="width: 100%; height: 100px; border-radius: 8px; object-fit: cover; cursor: pointer;">
+                <p style="margin-top: 10px; color: #fff; font-weight: 700; text-shadow: 0 0 5px #fff; font-size: 0.9em;">Click để hiển thị script</p>
+              </div>
+              <div class="script-content" style="display: none;">
+                <textarea readonly style="width:100%; height:80px; border-radius: 8px; padding: 10px; resize:none; background:#222; color:#0f0; font-family: monospace; font-size: 0.8em;">
+repeat wait() until game:IsLoaded() and game.Players.LocalPlayer
+getgenv().Team = "Pirates" -- Marines
+loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/bf92d246f65d7d0e0d684a81d4e59fa3.lua"))()
+                </textarea>
+                <a class="button copy-btn" href="javascript:void(0)">Copy Script</a>
+                <a class="button" href="javascript:void(0)" onclick="toggleScript(this)">Ẩn lại</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <script>
     // Copy Script
@@ -563,7 +682,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/XNEOFF/FlyGuiV3/main/
           textarea.setSelectionRange(0, 99999);
           navigator.clipboard.writeText(textarea.value).then(() => {
             const original = btn.textContent;
-            btn.textContent = "Copied!";
+            btn.textContent = "Đã Sao Chép!";
             setTimeout(() => btn.textContent = original, 1500);
           }).catch(() => alert("Copy thất bại! Vui lòng copy thủ công."));
         });
@@ -585,7 +704,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/XNEOFF/FlyGuiV3/main/
     }
   </script>
   <script>
-    // Scroll reveal effect - chỉ cần chèn một lần
+    // Scroll reveal effect
     (function() {
       const revealElements = document.querySelectorAll('.fade-in-up');
 
@@ -607,18 +726,93 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/XNEOFF/FlyGuiV3/main/
     })();
   </script>
   <script>
+    // Popup Menu & Music Player Logic
     document.addEventListener("DOMContentLoaded", () => {
-      const popup = document.getElementById("intro-popup");
-      const closeBtn = document.getElementById("close-popup-btn");
-
-      // LUÔN hiển thị popup mỗi lần vào trang
-      popup.style.display = "block";
-
-      // Khi bấm nút "Đóng" thì ẩn popup
-      closeBtn.addEventListener("click", () => {
-        popup.style.display = "none";
+      const mainPopupBtn = document.getElementById("main-popup-btn");
+      const mainPopup = document.getElementById("main-popup");
+      const musicTab = document.getElementById("music-tab");
+      const scriptTab = document.getElementById("script-tab");
+      const musicContent = document.getElementById("music-content");
+      const scriptContent = document.getElementById("script-content-popup");
+      
+      // Toggle popup
+      mainPopupBtn.addEventListener('click', () => {
+        mainPopup.style.display = mainPopup.style.display === "flex" ? "none" : "flex";
       });
+      
+      // Switch tabs
+      musicTab.addEventListener('click', () => {
+        musicTab.classList.add('active');
+        scriptTab.classList.remove('active');
+        musicContent.classList.add('active');
+        scriptContent.classList.remove('active');
+      });
+      
+      scriptTab.addEventListener('click', () => {
+        scriptTab.classList.add('active');
+        musicTab.classList.remove('active');
+        scriptContent.classList.add('active');
+        musicContent.classList.remove('active');
+      });
+
+      // Music Player
+      const audioPlayer = document.getElementById('audio-player');
+      const playPauseBtn = document.getElementById('play-pause-btn');
+      const nextBtn = document.getElementById('next-btn');
+      const prevBtn = document.getElementById('prev-btn');
+      const currentSongTitle = document.getElementById('current-song-title');
+      
+      const songs = [
+        {
+          title: "Trancending the world - FFXIV",
+          url: "https://www.w3schools.com/tags/horse.mp3"
+        },
+        {
+          title: "The Battle on the Big Bridge - FFXIV",
+          url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3"
+        },
+        {
+          title: "Sons of the Sun - FFXIV",
+          url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3"
+        }
+      ];
+      let currentSongIndex = 0;
+
+      function loadSong(index) {
+        audioPlayer.src = songs[index].url;
+        currentSongTitle.textContent = songs[index].title;
+        audioPlayer.load();
+        audioPlayer.play();
+        playPauseBtn.textContent = '⏸';
+      }
+
+      playPauseBtn.addEventListener('click', () => {
+        if (audioPlayer.paused) {
+          audioPlayer.play();
+          playPauseBtn.textContent = '⏸';
+        } else {
+          audioPlayer.pause();
+          playPauseBtn.textContent = '▶';
+        }
+      });
+
+      nextBtn.addEventListener('click', () => {
+        currentSongIndex = (currentSongIndex + 1) % songs.length;
+        loadSong(currentSongIndex);
+      });
+
+      prevBtn.addEventListener('click', () => {
+        currentSongIndex = (currentSongIndex - 1 + songs.length) % songs.length;
+        loadSong(currentSongIndex);
+      });
+      
+      audioPlayer.addEventListener('ended', () => {
+        currentSongIndex = (currentSongIndex + 1) % songs.length;
+        loadSong(currentSongIndex);
+      });
+
+      loadSong(currentSongIndex);
     });
   </script>
 </body>
-</html>
+        </html>
