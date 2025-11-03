@@ -5,16 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>ZENOX EXECUTOR</title>
   <style>
+    /* NHẬP FONT */
     @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600;700&display=swap');
+    
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
-    body {
+    /* ĐOẠN CSS ĐƯỢC SỬA ĐỔI CHO NỀN ĐEN + SAO + NEON NHẸ */
+    html, body {
       font-family: 'Rajdhani', sans-serif;
-      background: #0a0a0a;
+      background: #0a0a0a; /* Nền đen rất tối */
       min-height: 100vh;
       display: flex;
       flex-direction: column;
@@ -26,20 +29,15 @@
       padding: 40px 0;
     }
 
-    body::before {
-      content: '';
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background:
-        radial-gradient(circle at 20% 20%, rgba(0, 255, 136, 0.1) 0%, transparent 50%),
-        radial-gradient(circle at 80% 80%, rgba(0, 204, 255, 0.1) 0%, transparent 50%),
-        radial-gradient(circle at 40% 40%, rgba(255, 0, 136, 0.05) 0%, transparent 50%),
-        linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
-      z-index: -1;
+    /* Canvas nền chiếm toàn màn hình */
+    #galaxy{
+      position:fixed;
+      inset:0;
+      width:100%;
+      height:100%;
+      z-index:0; /* Đảm bảo canvas nằm dưới nội dung */
     }
+    /* KẾT THÚC ĐOẠN CSS SỬA ĐỔI */
 
     @keyframes pulse {
       0% { transform: scale(1); opacity: 1; }
@@ -69,6 +67,8 @@
       margin: 20px 0;
       backdrop-filter: blur(10px);
       border: 1px solid rgba(0, 255, 136, 0.2);
+      position: relative; /* Quan trọng để nội dung nằm trên canvas */
+      z-index: 1; /* Đảm bảo nội dung nằm trên canvas */
     }
 
     .section-title {
@@ -152,6 +152,8 @@
       color: #ffffff;
       text-shadow: 0 0 10px #ffffff55;
       text-align: center;
+      position: relative; /* Quan trọng để nội dung nằm trên canvas */
+      z-index: 1; /* Đảm bảo nội dung nằm trên canvas */
     }
 
     .animated-line {
@@ -162,6 +164,8 @@
       animation: pulseLine 1.5s ease-in-out infinite;
       margin-bottom: 20px;
       border-radius: 2px;
+      position: relative; /* Quan trọng để nội dung nằm trên canvas */
+      z-index: 1; /* Đảm bảo nội dung nằm trên canvas */
     }
 
     @keyframes pulseLine {
@@ -679,6 +683,31 @@ font-weight: bold;"></p>
     </div>
   </div>
 
+  <canvas id="galaxy" aria-hidden="true"></canvas>
+  <script>
+    const cvs=document.getElementById('galaxy'), ctx=cvs.getContext('2d');
+    let W,H,stars=[],meteors=[];
+    function size(){W=cvs.width=innerWidth;H=cvs.height=innerHeight}
+    function makeStars(n){stars=Array.from({length:n},()=>({x:Math.random()*W,y:Math.random()*H,r:Math.random()*1.5+.2,v:Math.random()*0.25+0.08}))}
+    let starsOn = true;
+    function draw(){
+      ctx.clearRect(0,0,W,H);
+      const grd=ctx.createRadialGradient(W*.7,H*.3,0,W*.7,H*.3,Math.max(W,H)*.8);
+      // Điều chỉnh màu sắc và độ trong suốt của luồng sáng để nhẹ nhàng hơn
+      grd.addColorStop(0,'rgba(0, 255, 136, 0.04)'); // Xanh Neon nhẹ
+      grd.addColorStop(0.5,'rgba(0, 204, 255, 0.03)'); // Xanh Dương nhẹ
+      grd.addColorStop(1,'transparent');
+      ctx.fillStyle=grd; ctx.fillRect(0,0,W,H);
+      if(starsOn){
+        ctx.fillStyle='#fff';
+        for(const s of stars){ s.y+=s.v; if(s.y>H){s.y=0; s.x=Math.random()*W} ctx.beginPath(); ctx.arc(s.x,s.y,s.r,0,Math.PI*2); ctx.fill(); }
+      }
+      requestAnimationFrame(draw);
+    }
+    addEventListener('resize',()=>{size(); makeStars(180)});
+    size(); makeStars(180); draw();
+  </script>
+
   <script>
     // Copy Script
     document.addEventListener("DOMContentLoaded", () => {
@@ -774,16 +803,16 @@ const playPauseBtn = document.getElementById('play-pause-btn');
 const songs = [
         {
           title: "Sóng Và Gió - Jàquét 97",
-          url: "https://github.com/QUYDEPTRAI499/Music/raw/refs/heads/main/m%E1%BB%9Di%20c%C3%A1c%20v%E1%BB%8B%20th%C6%B0%E1%BB%9Fng%20th%E1%BB%A9csonata%20c%E1%BB%A7a%20gi%C3%B3%20v%C3%A0%20bi%E1%BB%83n%20-%20(S%C3%B3ng%20gi%C3%B3%20-%20Symphony%20ver%20-%20J97xK-ICM)%20%23music%20-%20tiger%20music.mp3"
+          url: "https://github.com/QUYDEPTRAI499/Music/raw/refs/heads/main/m%E1%BB%9Bi%20c%C3%A1c%20v%E1%BB%8B%20th%C6%B0%E1%BB%9Fng%20th%E1%BB%A9csonata%20c%E1%BB%A7a%20gi%C3%B3%20v%C3%A0%20bi%E1%BB%83n%20-%20(S%C3%B3ng%20gi%C3%B3%20-%20Symphony%20ver%20-%20J97xK-ICM)%20%23music%20-%20tiger%20music.mp3"
         },
         {
           title: "Nơi Ta Trị Vì - Sone Tune Emtypier",
-          url: "https://github.com/QUYDEPTRAI499/Music/raw/refs/heads/main/m%E1%BB%9Di%20c%C3%A1c%20v%E1%BB%8B%20th%C6%B0%E1%BB%9Fng%20th%E1%BB%A9cn%C6%A1i%20ta%20ch%E1%BB%89%20v%C3%AC%20-%20(N%C6%A1i%20n%C3%A0y%20c%C3%B3%20anh%20-%20Symphony%20ver%20-%20S%C6%A1n%20T%C3%B9ng%20MTP)%20-%20tiger%20music.mp3"
+          url: "https://github.com/QUYDEPTRAI499/Music/raw/refs/heads/main/m%E1%BB%9Bi%20c%C3%A1c%20v%E1%BB%8B%20th%C6%B0%E1%BB%9Fng%20th%E1%BB%A9cn%C6%A1i%20ta%20ch%E1%BB%89%20v%C3%AC%20-%20(N%C6%A1i%20n%C3%A0y%20c%C3%B3%20anh%20-%20Symphony%20ver%20-%20S%C6%A1n%20T%C3%B9ng%20MTP)%20-%20tiger%20music.mp3"
         },
         {
   
           title: "Điệu Valse Rời Xa Nhau - Sone Tune Emtypier",
-          url: " https://github.com/QUYDEPTRAI499/Music/raw/refs/heads/main/m%E1%BB%9Di%20c%C3%A1c%20v%E1%BB%8B%20th%C6%B0%E1%BB%9Fng%20th%E1%BB%A9c%C4%91i%E1%BB%87u%20valse%20r%E1%BB%9Di%20xa%20nhau(%C4%91%E1%BA%ADm%20ch%E1%BA%A5t%20qu%C3%BD%20s%E1%BB%9D%20t%E1%BB%99c)%20%23music%20%23nhachaymoingay%20-%20tiger%20music.mp3"
+          url: " https://github.com/QUYDEPTRAI499/Music/raw/refs/heads/main/m%E1%BB%9Bi%20c%C3%A1c%20v%E1%BB%8B%20th%C6%B0%E1%BB%9Fng%20th%E1%BB%A9c%C4%91i%E1%BB%87u%20valse%20r%E1%BB%9Di%20xa%20nhau(%C4%91%E1ºm%20ch%E1º¥t%20qu%C3%BD%20s%E1»%9F%20t%E1»™c)%20%23music%20%23nhachaymoingay%20-%20tiger%20music.mp3"
         },
         {
           title: "Anh Vui Đến Nỗi Nghẹn Ngào - Phạm Kỳ",
@@ -825,4 +854,4 @@ loadSong(currentSongIndex);
     });
   </script>
 </body>
-</html>
+  </html>
